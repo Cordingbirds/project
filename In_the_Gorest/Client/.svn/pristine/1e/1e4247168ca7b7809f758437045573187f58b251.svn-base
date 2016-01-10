@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Include">
+      <UniqueIdentifier>{cfa1c841-2ef6-4f72-b34e-fc85b133d087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Default">
+      <UniqueIdentifier>{61e987d9-8434-4ab4-9b4b-c36d7aad9d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager">
+      <UniqueIdentifier>{cedaf8cd-517f-4d9c-9387-6062c92b21cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. MainGame">
+      <UniqueIdentifier>{b68c86fa-5e49-4dc8-9943-3536d5fe9d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\a. Device">
+      <UniqueIdentifier>{eef224ed-eedd-403f-8d96-7151f76229f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\b. TimeMgr">
+      <UniqueIdentifier>{0eb37cc9-4e7d-4818-84ee-8629ed358356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\c. SceneMgr">
+      <UniqueIdentifier>{d761394d-72e3-4a71-8254-8268e03213ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene">
+      <UniqueIdentifier>{479620ce-ad52-4697-aa73-74844f36f1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene\a. Loading">
+      <UniqueIdentifier>{2d7df802-c6e0-426f-861a-b8de78e7d408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene\b. Title">
+      <UniqueIdentifier>{f6ef435f-6548-40a8-b531-00132e604e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene\c. Lobby">
+      <UniqueIdentifier>{e9a81c91-2fd2-40fb-bd9b-fde0ab4a911c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene\d. Room">
+      <UniqueIdentifier>{9ff5ceea-64ad-4d70-b3f4-3bbfab2f11ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene\e. InMap">
+      <UniqueIdentifier>{5b836bb4-2fcb-4056-8252-006479923110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Obj">
+      <UniqueIdentifier>{7580ea0a-81fe-49cc-acd7-35559f0d093e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Obj\a. UI">
+      <UniqueIdentifier>{d797d167-aa63-4172-9a90-1726b3b42443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Obj\b. Unit">
+      <UniqueIdentifier>{9f919d90-3d02-4847-a934-9633ddaac5d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\d. GameMgr">
+      <UniqueIdentifier>{d752ea88-fccc-4317-bfad-6fca2b868077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\e. InMapMgr">
+      <UniqueIdentifier>{2feeab2a-ee51-48d9-ab07-9672804ecfc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\f. ObjMgr">
+      <UniqueIdentifier>{83878728-ae37-4ddb-87cc-daec21b4c49b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\g. UIMgr">
+      <UniqueIdentifier>{eb47285f-6efa-4d30-97cd-9b8a01846d48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\h. CollMgr">
+      <UniqueIdentifier>{fb5b6321-fb61-4f3f-9dcd-072c49eb2a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Design">
+      <UniqueIdentifier>{e037a83b-c5fe-4ce1-8466-13d3cb7bf9cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Design\a. Factory">
+      <UniqueIdentifier>{90d62e38-e9f7-4318-ae3d-50c28e01c463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Design\b. Observer">
+      <UniqueIdentifier>{976b5e51-ffb1-472f-a096-996660ad7a88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\i. Data">
+      <UniqueIdentifier>{2d7bf0d5-888c-44de-8870-b8981106b021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\j. Sound">
+      <UniqueIdentifier>{5a32f3f2-00a8-410f-8090-bac8acb33514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager\K. Timer">
+      <UniqueIdentifier>{edad3597-efb7-4733-9b5f-0dfb317c7f60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일\99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>소스 파일\99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일\99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Value.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Namespace.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>소스 파일\00. MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>소스 파일\01. Manager\b. TimeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Device.h">
+      <Filter>소스 파일\01. Manager\a. Device</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>소스 파일\01. Manager\c. SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="InMap.h">
+      <Filter>소스 파일\02. Scene\e. InMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Loading.h">
+      <Filter>소스 파일\02. Scene\a. Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>소스 파일\02. Scene\b. Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby.h">
+      <Filter>소스 파일\02. Scene\c. Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>소스 파일\02. Scene\d. Room</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일\99. Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>소스 파일\99. Default</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>소스 파일\00. MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>소스 파일\01. Manager\b. TimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Device.cpp">
+      <Filter>소스 파일\01. Manager\a. Device</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>소스 파일\01. Manager\c. SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="InMap.cpp">
+      <Filter>소스 파일\02. Scene\e. InMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Loading.cpp">
+      <Filter>소스 파일\02. Scene\a. Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>소스 파일\02. Scene\b. Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby.cpp">
+      <Filter>소스 파일\02. Scene\c. Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>소스 파일\02. Scene\d. Room</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Client.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

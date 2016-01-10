@@ -1,0 +1,22 @@
+#pragma once
+
+#include "Include.h"
+
+class CDevice;
+class CMainGame
+{
+private :
+	CDevice*	m_pDevice;
+
+
+public :
+	HRESULT		Init();
+	void		Update();
+	void		Render();
+	void		Release();
+
+public:
+	CMainGame();
+	~CMainGame();
+};
+

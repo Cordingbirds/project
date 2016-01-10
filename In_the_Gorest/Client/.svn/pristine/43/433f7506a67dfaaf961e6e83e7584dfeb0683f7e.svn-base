@@ -1,0 +1,41 @@
+#include "stdafx.h"
+#include "MainGame.h"
+
+#include <time.h>
+
+
+CMainGame::CMainGame()
+: m_pDevice(CDevice::GetInstance())
+{
+
+}
+
+CMainGame::~CMainGame()
+{
+	Release();
+}
+
+HRESULT CMainGame::Init()
+{
+	srand(unsigned int(time(NULL)));
+
+	FAILED_CHECK((m_pDevice->InitDevice()));
+
+
+	return S_OK;
+}
+							
+void CMainGame::Update()
+{
+
+}
+
+void CMainGame::Render()
+{
+
+}
+
+void CMainGame::Release()
+{
+
+}
