@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MemoryPool.h"
+#include "SingleTon.h"
 using namespace std;
 
 class CDataMP : public CMemoryPool < CDataMP > {
