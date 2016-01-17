@@ -21,6 +21,9 @@
     <ClCompile Include="Clock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="IOCPTEST.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemoryPool.h">

@@ -6,7 +6,7 @@
 
 #define CLOCK					Clock::getInstance()
 #define NOW_TICK				CLOCK.systemTick
-#define NOW_STRING				CLOKC.nowTime
+#define NOW_STRING				CLOCK.nowTime
 
 #define TICK_MIN				(60)
 #define TICK_HOUR				(TICK_MIN * 60)
@@ -29,7 +29,7 @@ typedef enum{
 	DAY_SATURDAY	= 6,
 }DayOfTheWeek;
 
-#define DATETIME_FORMAT			L"D%y-%m-%dT%H:%M:%S"
+#define DATETIME_FORMAT			L"D%y-%m-%d / T%H:%M:%S"
 #define DATE_FORMAT				L"%y-%m-%d"
 #define TIME_FORMAT				L"%H:%m:%S"
 #define DB_TIME_FORMAT			L"%4d-%2d-%2d %2d:%2d:%2d"
@@ -43,7 +43,7 @@ class Clock : public SingleTon < Clock >
 {
 	time_t serverStartTick_;
 
-	wstring tickTostr(time_t tick, WCHAR *fmt = DATETIME_FORMAT);
+	wstring tickTostr(time_t tick, WCHAR *fmt);
 
 public:
 	Clock();
@@ -53,8 +53,10 @@ public:
 	time_t systemTick();
 	time_t strToTick(wstring str, WCHAR *fmt = DB_TIME_FORMAT);
 
-	wstring nowTime(WCHAR * fmt = DATETIME_FORMAT);
+	wstring nowTime(WCHAR * fmt = TIME_FORMAT);
+	wstring nowDayTime(WCHAR *fmt = DATETIME_FORMAT);
 	wstring nowTimeWithMilliSec(WCHAR *fmt = DATETIME_FORMAT);
+	
 
 	wstring today();
 	wstring tomorrow();

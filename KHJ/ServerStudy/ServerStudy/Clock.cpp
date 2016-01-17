@@ -44,6 +44,9 @@ wstring Clock::nowTime(WCHAR *fmt)
 {
 	return this->tickTostr(this->systemTick(), fmt);
 }
+wstring Clock::nowDayTime(WCHAR *fmt){
+	return this->tickTostr(this->systemTick(), fmt);
+}
 wstring Clock::nowTimeWithMilliSec(WCHAR *fmt){
 #if 0
 	timePoint now = system_clock::now();
@@ -76,9 +79,11 @@ wstring Clock::today(){
 wstring Clock::tomorrow(){
 	return this->tickTostr(this->systemTick() + DAY_TO_TICK(1), DATE_FORMAT);
 }
+
 wstring Clock::yesterday(){
 	return this->tickTostr(this->systemTick() - DAY_TO_TICK(1), DATE_FORMAT);
 }
+
 DayOfTheWeek Clock::todayOfTheWeek(){
 	tm time;
 	time_t tick = this->systemTick();
