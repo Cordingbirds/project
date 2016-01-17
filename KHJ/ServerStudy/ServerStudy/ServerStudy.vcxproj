@@ -76,9 +76,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="OGSP_ex.cpp" />
+    <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="OGSP_ex.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Clock.h" />
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="SingleTon.h" />
   </ItemGroup>
