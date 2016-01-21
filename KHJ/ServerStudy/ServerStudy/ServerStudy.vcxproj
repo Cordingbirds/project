@@ -83,13 +83,18 @@
     <ClCompile Include="IOCPTEST.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Itme.cpp" />
     <ClCompile Include="OGSP_ex.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clock.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Protocol.h" />
     <ClInclude Include="SingleTon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
