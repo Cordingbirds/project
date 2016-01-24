@@ -2,6 +2,7 @@
 #pragma once
 #include <Windows.h>
 #include <cassert>
+
 template <class T, int ALLOC_BLOCK_SIZE = 50>
 
 class CMemoryPool{
