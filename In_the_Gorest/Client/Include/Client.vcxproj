@@ -11,25 +11,39 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Code\BoxCol.h" />
+    <ClInclude Include="..\Code\Buffer.h" />
+    <ClInclude Include="..\Code\Collision.h" />
     <ClInclude Include="..\Code\Component.h" />
+    <ClInclude Include="..\Code\CubeColor.h" />
     <ClInclude Include="..\Code\Device.h" />
     <ClInclude Include="..\Code\Functor.h" />
     <ClInclude Include="..\Code\InfoSubject.h" />
     <ClInclude Include="..\Code\InMap.h" />
+    <ClInclude Include="..\Code\KeyMgr.h" />
     <ClInclude Include="..\Code\Layer.h" />
     <ClInclude Include="..\Code\Loading.h" />
     <ClInclude Include="..\Code\Lobby.h" />
     <ClInclude Include="..\Code\MainGame.h" />
     <ClInclude Include="..\Code\Obj.h" />
+    <ClInclude Include="..\Code\ObjMgr.h" />
     <ClInclude Include="..\Code\Observer.h" />
+    <ClInclude Include="..\Code\PhysicsInfo.h" />
+    <ClInclude Include="..\Code\Player.h" />
+    <ClInclude Include="..\Code\PlayingInfo.h" />
+    <ClInclude Include="..\Code\RecosterInfo.h" />
     <ClInclude Include="..\Code\Renderer.h" />
     <ClInclude Include="..\Code\Resource.h" />
+    <ClInclude Include="..\Code\Rider.h" />
     <ClInclude Include="..\Code\Room.h" />
+    <ClInclude Include="..\Code\RoomInfo.h" />
     <ClInclude Include="..\Code\Scene.h" />
     <ClInclude Include="..\Code\SceneMgr.h" />
     <ClInclude Include="..\Code\Subject.h" />
     <ClInclude Include="..\Code\Timer.h" />
     <ClInclude Include="..\Code\Title.h" />
+    <ClInclude Include="..\Code\Unit.h" />
+    <ClInclude Include="..\Code\UserInfo.h" />
     <ClInclude Include="..\Headers\Define.h" />
     <ClInclude Include="..\Headers\Enum.h" />
     <ClInclude Include="..\Headers\Function.h" />
@@ -49,29 +63,57 @@
     <ResourceCompile Include="Client.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Code\BoxCol.cpp" />
+    <ClCompile Include="..\Code\Buffer.cpp" />
+    <ClCompile Include="..\Code\Collision.cpp" />
     <ClCompile Include="..\Code\Component.cpp" />
+    <ClCompile Include="..\Code\CubeColor.cpp" />
     <ClCompile Include="..\Code\Device.cpp" />
     <ClCompile Include="..\Code\InfoSubject.cpp" />
     <ClCompile Include="..\Code\InMap.cpp" />
+    <ClCompile Include="..\Code\KeyMgr.cpp" />
     <ClCompile Include="..\Code\Layer.cpp" />
     <ClCompile Include="..\Code\Loading.cpp" />
     <ClCompile Include="..\Code\Lobby.cpp" />
     <ClCompile Include="..\Code\MainGame.cpp" />
     <ClCompile Include="..\Code\Obj.cpp" />
+    <ClCompile Include="..\Code\ObjMgr.cpp" />
     <ClCompile Include="..\Code\Observer.cpp" />
+    <ClCompile Include="..\Code\PhysicsInfo.cpp" />
+    <ClCompile Include="..\Code\Player.cpp" />
+    <ClCompile Include="..\Code\PlayingInfo.cpp" />
+    <ClCompile Include="..\Code\RecosterInfo.cpp" />
     <ClCompile Include="..\Code\Renderer.cpp" />
     <ClCompile Include="..\Code\Resource.cpp" />
+    <ClCompile Include="..\Code\Rider.cpp" />
     <ClCompile Include="..\Code\Room.cpp" />
+    <ClCompile Include="..\Code\RoomInfo.cpp" />
     <ClCompile Include="..\Code\Scene.cpp" />
     <ClCompile Include="..\Code\SceneMgr.cpp" />
     <ClCompile Include="..\Code\Subject.cpp" />
     <ClCompile Include="..\Code\Timer.cpp" />
     <ClCompile Include="..\Code\Title.cpp" />
+    <ClCompile Include="..\Code\Unit.cpp" />
+    <ClCompile Include="..\Code\UserInfo.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\bin\Fx\VertexColor.fx">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\bin\Fx\VertexTexture.fx">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0A4EB44C-84C0-4A85-B882-1C3231276989}</ProjectGuid>
@@ -107,6 +149,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../bin/</OutDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <EnableManagedIncrementalBuild>false</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -114,16 +157,17 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../Code;../Headers;../../Reference/Headers</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;dxerr.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../Reference/Librarys</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -142,7 +186,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>d3dx9.lib;d3d9.lib;d3d11.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;dxerr.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../Reference/Librarys</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

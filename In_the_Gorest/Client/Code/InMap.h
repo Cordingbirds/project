@@ -1,9 +1,11 @@
 #pragma once
 #include "Scene.h"
+
+class CDevice;
 class CInMap : public CScene
 {
 public:
-	static CInMap*	Create(ID3D11Device*);
+	static CInMap*	Create(CDevice*);
 
 public:
 	virtual HRESULT		Init();
@@ -12,7 +14,7 @@ public:
 	virtual void		Release();
 
 private:
-	explicit CInMap(ID3D11Device*);
+	explicit CInMap(CDevice*);
 public:
 	virtual ~CInMap();
 };

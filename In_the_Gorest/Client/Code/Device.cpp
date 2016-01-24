@@ -1,14 +1,21 @@
 #include "stdafx.h"
 #include "Device.h"
 
+extern HWND		g_hWnd;
+
 IMPLEMENT_SINGLETON(CDevice)
 
 const float CDevice::COLOR_BACKBUFFER[4] = { 0.f, 0.f, 0.f, 0.f };
 
 
 CDevice::CDevice()
-: m_pDevice(NULL),
-m_pDeviceCon(NULL)
+: m_pDevice(NULL)
+, m_pDeviceContext(NULL)
+
+, m_pSwapChain(NULL)
+, m_pRenderTargetView(NULL)
+, m_pDepthStencilBuffer(NULL)
+, m_pDepthStencilView(NULL)
 {
 }
 
@@ -18,7 +25,7 @@ CDevice::~CDevice()
 	Release();
 }
 
-HRESULT CDevice::InitDevice(WinMode _eWinMode)
+HRESULT CDevice::Init(WinMode _eWinMode)
 {
 	UINT	deviceFlags = 0;
 #if defined(DEBUG) || defined(_DEBUG)
@@ -29,7 +36,7 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 	D3D_FEATURE_LEVEL	featureLEvel;
 	FAILED_CHECK(D3D11CreateDevice(0, D3D_DRIVER_TYPE_HARDWARE,
 		0, deviceFlags, 0, 0, D3D11_SDK_VERSION,
-		&m_pDevice, &featureLEvel, &m_pDeviceCon));
+		&m_pDevice, &featureLEvel, &m_pDeviceContext));
 
 	if (featureLEvel != D3D_FEATURE_LEVEL_11_0)
 	{
@@ -44,8 +51,8 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 
 
 	DXGI_SWAP_CHAIN_DESC swapChain;
-	swapChain.BufferDesc.Width = CLIENT_WINCX;
-	swapChain.BufferDesc.Height = CLIENT_WINCY;
+	swapChain.BufferDesc.Width = (UINT)CLIENT_WINCX;
+	swapChain.BufferDesc.Height = (UINT)CLIENT_WINCY;
 
 	swapChain.BufferDesc.RefreshRate.Numerator = 60;
 	swapChain.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -88,7 +95,7 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 
 
 	FAILED_CHECK(m_pSwapChain->ResizeBuffers(
-		1, CLIENT_WINCX, CLIENT_WINCY, DXGI_FORMAT_R8G8B8A8_UNORM, 0));
+		1, (UINT)CLIENT_WINCX, (UINT)CLIENT_WINCY, DXGI_FORMAT_R8G8B8A8_UNORM, 0));
 
 
 	ID3D11Texture2D* backBuffer;
@@ -103,8 +110,8 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 
 	D3D11_TEXTURE2D_DESC depthStencil;
 
-	depthStencil.Width = CLIENT_WINCX;
-	depthStencil.Height = CLIENT_WINCY;
+	depthStencil.Width = (UINT)CLIENT_WINCX;
+	depthStencil.Height = (UINT)CLIENT_WINCY;
 	depthStencil.MipLevels = 1;
 	depthStencil.ArraySize = 1;
 	depthStencil.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
@@ -125,7 +132,7 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 		m_pDepthStencilBuffer, 0, &m_pDepthStencilView));
 
 
-	m_pDeviceCon->OMSetRenderTargets(1, &m_pRenderTargetView, m_pDepthStencilView);
+	m_pDeviceContext->OMSetRenderTargets(1, &m_pRenderTargetView, m_pDepthStencilView);
 
 
 	D3D11_VIEWPORT screenViewport;
@@ -136,7 +143,7 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 	screenViewport.MinDepth = 0.f;
 	screenViewport.MaxDepth = 1.f;
 
-	m_pDeviceCon->RSSetViewports(1, &screenViewport);
+	m_pDeviceContext->RSSetViewports(1, &screenViewport);
 
 
 	return S_OK;
@@ -144,16 +151,22 @@ HRESULT CDevice::InitDevice(WinMode _eWinMode)
 
 void CDevice::Release()
 {
-	if (m_pDeviceCon) m_pDeviceCon->ClearState();
+	m_pDepthStencilView->Release();
+	m_pDepthStencilBuffer->Release();
+	m_pRenderTargetView->Release();
+	m_pSwapChain->Release();
 
-	m_pDeviceCon->Release();
+
+	if (m_pDeviceContext) m_pDeviceContext->ClearState();
+
+	m_pDeviceContext->Release();
 	m_pDevice->Release();
 }
 
 void CDevice::Render_Begin(void)
 {
-	m_pDeviceCon->ClearRenderTargetView(m_pRenderTargetView, COLOR_BACKBUFFER);
-	m_pDeviceCon->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.f, 0);
+	m_pDeviceContext->ClearRenderTargetView(m_pRenderTargetView, COLOR_BACKBUFFER);
+	m_pDeviceContext->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.f, 0);
 }
 
 void CDevice::Render_End(void)

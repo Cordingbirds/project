@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "SceneMgr.h"
 
+#include "Device.h"
 #include "Renderer.h"
 
 #include "Loading.h"
@@ -46,10 +47,10 @@ HRESULT CSceneMgr::SetScene(SceneID _eSceneID)
 	return S_OK;
 }
 
-HRESULT CSceneMgr::Init(ID3D11Device* _pDevice)
+HRESULT CSceneMgr::Init(CDevice* _pDevice)
 {
 	m_pDevice = _pDevice;
-	m_pRenderer = CRenderer::Create(CDevice::GetInstance());
+	m_pRenderer = CRenderer::Create(m_pDevice);
 
 	return S_OK;
 }
@@ -68,6 +69,6 @@ void CSceneMgr::Render()
 
 void CSceneMgr::Release()
 {
-	Safe_Delete(m_pScene);
-	Safe_Delete(m_pRenderer);
+	::Safe_Delete(m_pScene);
+	::Safe_Delete(m_pRenderer);
 }

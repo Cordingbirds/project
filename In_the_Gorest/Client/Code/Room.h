@@ -1,9 +1,11 @@
 #pragma once
 #include "Scene.h"
+
+class CDevice;
 class CRoom : public CScene
 {
 public:
-	static CRoom*	Create(ID3D11Device*);
+	static CRoom*	Create(CDevice*);
 
 public:
 	virtual HRESULT		Init();
@@ -12,7 +14,7 @@ public:
 	virtual void		Release();
 
 private:
-	explicit CRoom(ID3D11Device*);
+	explicit CRoom(CDevice*);
 public:
 	virtual ~CRoom();
 };

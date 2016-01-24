@@ -17,11 +17,12 @@
 #ifndef Scene_h__
 #define Scene_h__
 
+class CDevice;
 class CLayer;
 class CScene
 {
 protected:
-	ID3D11Device*			m_pDevice;
+	CDevice*				m_pDevice;
 	map<WORD, CLayer*>		m_mapLayer;
 
 public:
@@ -38,7 +39,7 @@ private :
 
 
 public:
-	CScene(ID3D11Device* _pDevice);
+	CScene(CDevice* _pDevice);
 	~CScene();
 };
 

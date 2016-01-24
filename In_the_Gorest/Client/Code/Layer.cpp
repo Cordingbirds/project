@@ -4,7 +4,7 @@
 #include "Obj.h"
 
 
-CLayer::CLayer(ID3D11Device* _pDevice) :
+CLayer::CLayer(CDevice* _pDevice) :
 m_pDevice(_pDevice)
 {
 
@@ -15,7 +15,7 @@ CLayer::~CLayer()
 	Release_Obj();
 }
 
-CLayer* CLayer::Create(ID3D11Device* _pDevice)
+CLayer* CLayer::Create(CDevice* _pDevice)
 {
 	return new CLayer(_pDevice);
 }
@@ -68,9 +68,9 @@ void CLayer::Update_Obj()
 
 		for (; iterList != iterList_end;)
 		{
-			if ((*iterList)->Update() == OBJ_STATE_DIE)
+			if ((*iterList)->Update() == CObj::OBJ_STATE_DIE)
 			{
-				Safe_Delete(*iterList);
+				::Safe_Delete(*iterList);
 				iterList = iterMap->second.erase(iterList);
 			}
 			else ++iterList;
@@ -104,7 +104,7 @@ void CLayer::Release_Obj()
 		list<CObj*>::iterator	iterList_end = iterMap->second.end();
 
 		for (; iterList != iterList_end; ++iterList)
-			Safe_Delete(*iterList);
+			::Safe_Delete(*iterList);
 
 		iterMap->second.clear();
 	}

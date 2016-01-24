@@ -2,10 +2,11 @@
 #include "Scene.h"
 
 
+class CDevice;
 class CTitle : public CScene
 {
 public:
-	static CTitle*	Create(ID3D11Device*);
+	static CTitle*	Create(CDevice*);
 
 public:
 	virtual HRESULT		Init();
@@ -14,7 +15,7 @@ public:
 	virtual void		Release();
 
 private:
-	explicit CTitle(ID3D11Device*);
+	explicit CTitle(CDevice*);
 public:
 	virtual ~CTitle();
 };

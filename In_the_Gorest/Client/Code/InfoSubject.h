@@ -18,7 +18,7 @@
 #define InfoSubject_h__
 
 #include "Subject.h"
-#include "Include.h"
+#include "Define.h"
 
 class CInfoSubject : public CSubject
 {

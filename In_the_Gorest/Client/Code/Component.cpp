@@ -4,8 +4,7 @@
 #include "Include.h"
 
 
-CComponent::CComponent() :
-m_pRefCnt(new WORD(0))
+CComponent::CComponent()
 {
 
 }
@@ -14,9 +13,3 @@ CComponent::~CComponent()
 {
 
 }
-
-void CComponent::Release()
-{
-	Safe_Delete(m_pRefCnt);
-}
-

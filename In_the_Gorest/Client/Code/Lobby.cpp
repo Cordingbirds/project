@@ -2,7 +2,7 @@
 #include "Lobby.h"
 
 
-CLobby::CLobby(ID3D11Device* _pDevice)
+CLobby::CLobby(CDevice* _pDevice)
 : CScene(_pDevice)
 {
 }
@@ -12,12 +12,12 @@ CLobby::~CLobby()
 {
 }
 
-CLobby* CLobby::Create(ID3D11Device* _pDevice)
+CLobby* CLobby::Create(CDevice* _pDevice)
 {
 	CLobby* pScene = new CLobby(_pDevice);
 
 	if (FAILED(pScene->Init()))
-		Safe_Delete(pScene);
+		::Safe_Delete(pScene);
 
 	return pScene;
 }

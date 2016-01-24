@@ -23,7 +23,7 @@ class CDevice;
 class CRenderer
 {
 private :
-	CDevice*		m_pDeviceClass;
+	CDevice*		m_pDevice;
 	CScene*			m_pScene;
 
 public :

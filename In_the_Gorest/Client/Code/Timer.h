@@ -36,7 +36,7 @@ private :
 
 public :
 	void	InitTime();
-	void	SetTime();
+	void	UpdateTime();
 
 	float	GetTime() { return m_fTime;  }
 

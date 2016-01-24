@@ -15,7 +15,7 @@ private :
 
 private :
 	ID3D11Device*			m_pDevice;
-	ID3D11DeviceContext*	m_pDeviceCon;
+	ID3D11DeviceContext*	m_pDeviceContext;
 
 	IDXGISwapChain*			m_pSwapChain;
 	ID3D11RenderTargetView* m_pRenderTargetView;
@@ -26,7 +26,7 @@ private :
 
 	
 public:
-	HRESULT		InitDevice(WinMode _eWinMode = WIN_MODE_WIN);
+	HRESULT		Init(WinMode _eWinMode = WIN_MODE_WIN);
 	void		Release();
 
 	void		Render_Begin(void);
@@ -35,7 +35,7 @@ public:
 
 public :
 	ID3D11Device*			GetDevice()					{ return m_pDevice; }
-	ID3D11DeviceContext*	GetDeviceCon()				{ return m_pDeviceCon; }
+	ID3D11DeviceContext*	GetDeviceCon()				{ return m_pDeviceContext; }
 
 	IDXGISwapChain*			GetSwapChain()				{ return m_pSwapChain; }
 	ID3D11RenderTargetView*	GetRenderTargetView()		{ return m_pRenderTargetView; }

@@ -19,21 +19,26 @@
 
 #include "Component.h"
 
+class CDevice;
 class CResource : public CComponent
 {
-private :
-	ID3D11Device*			m_pDevice;
+protected:
+	CDevice*				m_pDevice;
+	WORD*					m_pRefCnt;
 
 public:
-	virtual void			Update()	PURE;
 	virtual CComponent*		Clone()		PURE;
-
+	virtual void			Update()	PURE;
+private :
+	virtual void			Release()	PURE;
 
 protected:
-	CResource(ID3D11Device*);
+	void ReleaseRefCnt();
+
+protected:
+	CResource(CDevice*);
 public :
 	virtual ~CResource();
-
 };
 
 #endif // Resource_h__

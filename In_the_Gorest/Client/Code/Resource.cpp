@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "Resource.h"
 
-CResource::CResource(ID3D11Device* _pDevice) : 
-m_pDevice(_pDevice)
+CResource::CResource(CDevice* _pDevice)
+: m_pDevice(_pDevice)
+, m_pRefCnt(new WORD(0))
 {
 
 }
@@ -12,3 +13,7 @@ CResource::~CResource()
 
 }
 
+void CResource::ReleaseRefCnt()
+{
+	::Safe_Delete(m_pRefCnt);
+}

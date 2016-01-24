@@ -1,10 +1,12 @@
 #pragma once
 #include "Scene.h"
 
+
+class CDevice;
 class CLoading : public CScene
 {
 public :
-	static CLoading*	Create(ID3D11Device*);
+	static CLoading*	Create(CDevice*);
 
 public:
 	virtual HRESULT		Init();
@@ -13,7 +15,7 @@ public:
 	virtual void		Release();
 
 private:
-	explicit CLoading(ID3D11Device*);
+	explicit CLoading(CDevice*);
 public :
 	virtual ~CLoading();
 };

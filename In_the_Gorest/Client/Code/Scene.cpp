@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Scene.h"
 
-#include "Include.h"
+#include "Functor.h"
 #include "Layer.h"
 
 
-CScene::CScene(ID3D11Device* _pDevice) :
+CScene::CScene(CDevice* _pDevice) :
 m_pDevice(_pDevice)
 {
 }

@@ -2,7 +2,7 @@
 #include "Title.h"
 
 
-CTitle::CTitle(ID3D11Device* _pDevice) :
+CTitle::CTitle(CDevice* _pDevice) :
 CScene(_pDevice)
 {
 }
@@ -11,12 +11,12 @@ CTitle::~CTitle()
 {
 }
 
-CTitle* CTitle::Create(ID3D11Device* _pDevice)
+CTitle* CTitle::Create(CDevice* _pDevice)
 {
 	CTitle* pScene = new CTitle(_pDevice);
 
 	if (FAILED(pScene->Init()))
-		Safe_Delete(pScene);
+		::Safe_Delete(pScene);
 
 	return pScene;
 }

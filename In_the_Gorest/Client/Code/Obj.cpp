@@ -4,7 +4,7 @@
 #include "Component.h"
 
 
-CObj::CObj(ID3D11Device* _pDevice) :
+CObj::CObj(CDevice* _pDevice) :
 m_pDevice(_pDevice),
 m_eObjState(OBJ_STATE_NONE)
 {

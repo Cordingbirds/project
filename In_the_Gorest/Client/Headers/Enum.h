@@ -17,41 +17,21 @@
 #ifndef Enum_h__
 #define Enum_h__
 
-enum ObjState
+enum Radian
 {
-	OBJ_STATE_NONE,
+	RADIAN_X,
+	RADIAN_Y,
+	RADIAN_Z,
 
-	OBJ_STATE_IDLE,
-	OBJ_STATE_ALIVE,
-	OBJ_STATE_DIE
+	RADIAN_END
 };
 
-enum UnitGameState
+// (수정) 얘는 나중에 맵 로드 하는 클래스 헤더에 넣어주자.
+enum MapType
 {
-	UNIT_STATE_NONE,
+	MAP_TYPE_GORESTTREE,
 
-	UNIT_STATE_IDLE,
-	UNIT_STATE_PLAYING,
-	UNIT_STATE_GOAL
-};
-
-enum UnitMotionState
-
-{
-	UNIT_MOTION_NONE,
-
-	UNIT_MOTION_BASIC,
-
-	UNIT_MOTION_RUN,
-	UNIT_MOTION_BUSTER,
-
-	UNIT_MOTION_FALL,
-	UNIT_MOTION_AVOID
-};
-
-enum UnitDir
-{
-
+	MAP_TYPE_END
 };
 
 

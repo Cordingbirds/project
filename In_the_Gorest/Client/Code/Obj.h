@@ -20,12 +20,23 @@
 #include "Include.h"
 
 
+class CDevice;
 class CComponent;
 class CObj
 {
+public :
+	static enum ObjState
+	{
+		OBJ_STATE_NONE,
+
+		OBJ_STATE_IDLE,
+		OBJ_STATE_ALIVE,
+		OBJ_STATE_DIE
+	};
+
 protected:
-	ID3D11Device*			m_pDevice;
-	ObjState				m_eObjState;
+	CDevice*			m_pDevice;
+	ObjState			m_eObjState;
 
 	map<wstring, CComponent*>	m_mapComponent;
 
@@ -50,7 +61,7 @@ public :
 	virtual void	Release()		PURE;
 
 protected:
-	explicit CObj(ID3D11Device* _pDevice);
+	explicit CObj(CDevice* _pDevice);
 public :
 	virtual ~CObj();
 };

@@ -2,7 +2,7 @@
 #include "InMap.h"
 
 
-CInMap::CInMap(ID3D11Device* _pDevice)
+CInMap::CInMap(CDevice* _pDevice)
 : CScene(_pDevice)
 {
 }
@@ -12,12 +12,12 @@ CInMap::~CInMap()
 {
 }
 
-CInMap* CInMap::Create(ID3D11Device* _pDevice)
+CInMap* CInMap::Create(CDevice* _pDevice)
 {
 	CInMap* pScene = new CInMap(_pDevice);
 
 	if (FAILED(pScene->Init()))
-		Safe_Delete(pScene);
+		::Safe_Delete(pScene);
 
 	return pScene;
 }

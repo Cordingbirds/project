@@ -1,9 +1,12 @@
 #pragma once
 #include "Scene.h"
+
+
+class CDevice;
 class CLobby : public CScene
 {
 public:
-	static CLobby*	Create(ID3D11Device*);
+	static CLobby*	Create(CDevice*);
 
 public:
 	virtual HRESULT		Init();
@@ -12,7 +15,7 @@ public:
 	virtual void		Release();
 
 private:
-	explicit CLobby(ID3D11Device*);
+	explicit CLobby(CDevice*);
 public:
 	virtual ~CLobby();
 };

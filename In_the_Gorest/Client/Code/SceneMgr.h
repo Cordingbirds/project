@@ -26,6 +26,7 @@
 #include "InMap.h"
 
 
+class CDevice;
 class CScene;
 class CRenderer;
 class CSceneMgr
@@ -43,7 +44,7 @@ public :
 	};
 
 private :
-	ID3D11Device*	m_pDevice;
+	CDevice*		m_pDevice;
 
 	CScene*			m_pScene;
 	CRenderer*		m_pRenderer;
@@ -52,7 +53,7 @@ public :
 	HRESULT		SetScene(SceneID _eSceneID);
 
 public :
-	HRESULT		Init(ID3D11Device* _pDevice);
+	HRESULT		Init(CDevice* _pDevice);
 	void		Update();
 	void		Render();
 	void		Release();

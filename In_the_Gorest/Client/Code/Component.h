@@ -19,15 +19,10 @@
 
 class CComponent
 {
-protected:
-	WORD*			m_pRefCnt;
-
 public :
 	virtual void			Update()	PURE;
-	virtual CComponent*		Clone()		PURE;
-
-protected:
-	void Release();
+private :
+	virtual void			Release()	PURE;
 
 public :
 	explicit CComponent();

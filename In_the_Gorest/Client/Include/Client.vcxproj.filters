@@ -13,12 +13,6 @@
     <Filter Include="헤더 파일">
       <UniqueIdentifier>{082999d1-ca78-459c-9d14-93129125ee4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03. Scene">
-      <UniqueIdentifier>{5db52067-8566-4475-96af-37a6e5daf25a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\04. Layer">
-      <UniqueIdentifier>{a2a346af-e13d-4ffc-b0d8-156327e2930d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\05. Obj">
       <UniqueIdentifier>{e6b57797-b866-4760-8fdf-1b9cd765403d}</UniqueIdentifier>
     </Filter>
@@ -39,21 +33,6 @@
     </Filter>
     <Filter Include="소스 파일\00. Mgr">
       <UniqueIdentifier>{9647688d-d447-4888-a71c-ee658a185a75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\03. Scene\01%29 Loading">
-      <UniqueIdentifier>{033957bf-a03f-4a4d-8f27-880e55e558b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\03. Scene\03%29 Lobby">
-      <UniqueIdentifier>{f127b53c-bee4-4008-85eb-7721800d94c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\03. Scene\04%29 Room">
-      <UniqueIdentifier>{181598c3-fd25-41de-9d46-d66897a6c0ed}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\03. Scene\05%29 InMap">
-      <UniqueIdentifier>{d32160ad-55d3-4366-b02a-fa63a73b0ad9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\03. Scene\02%29 Title">
-      <UniqueIdentifier>{ed8b1f47-0e34-4088-8032-43534ed43552}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\00. Design\Observer">
       <UniqueIdentifier>{d46a199d-b261-46b7-97ec-f930aa307bee}</UniqueIdentifier>
@@ -85,9 +64,6 @@
     <Filter Include="소스 파일\00. Mgr\Whole\Device">
       <UniqueIdentifier>{58aeee18-7eb0-448f-885d-c7697ec4340a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\00. Mgr\Whole\Renderer">
-      <UniqueIdentifier>{77914f03-1a43-4621-84ee-edea9b4806d7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\00. Mgr\Whole\Timer">
       <UniqueIdentifier>{1a0f4298-3bcf-4d7c-9f24-61dc3d972df3}</UniqueIdentifier>
     </Filter>
@@ -106,23 +82,11 @@
     <Filter Include="소스 파일\00. Mgr\Part\UIMgr">
       <UniqueIdentifier>{ceb8086f-7f52-461e-86c7-1f8e95078618}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\00. Mgr\Part\GameMgr">
-      <UniqueIdentifier>{ea2f074c-da4f-494e-91c8-1bfcea04e9e3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\00. Mgr\Part\ObjMgr">
       <UniqueIdentifier>{cbd121e5-cc81-40a4-a15e-19175d4f3367}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\00. Mgr\Part\KeyMgr">
-      <UniqueIdentifier>{e14f09e1-abe3-4104-9a3b-e8d93b04e6cd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\00. Mgr\Whole\LoadMgr">
       <UniqueIdentifier>{d11d4603-f5ae-42d6-be0c-f401a5bd1cce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\06. Component\00%29 Server">
-      <UniqueIdentifier>{4daa6398-29d0-4387-9e46-4e300e4cddde}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\06. Component\03%29 Collision">
-      <UniqueIdentifier>{44720bba-4ab3-46a8-902f-3e3a182ef40b}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\06. Component\01%29 Resource">
       <UniqueIdentifier>{50b90c9b-b1a1-4dad-a028-4dfbaeed03c0}</UniqueIdentifier>
@@ -133,23 +97,95 @@
     <Filter Include="소스 파일\06. Component\01%29 Resource\Texture">
       <UniqueIdentifier>{4cf190f9-f804-4f52-a8b2-34e5146677dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\02%29 Physics">
-      <UniqueIdentifier>{eea4d304-42cb-4a82-a0c7-57f94c2c6d98}</UniqueIdentifier>
+    <Filter Include="소스 파일\06. Component\02%29 Collision">
+      <UniqueIdentifier>{44720bba-4ab3-46a8-902f-3e3a182ef40b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\04%29 Status">
+    <Filter Include="소스 파일\06. Component\02%29 Collision\BoxCol">
+      <UniqueIdentifier>{690627a9-b4a9-4ba3-b2e5-14edab0eded2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\02%29 Collision\SphereCol">
+      <UniqueIdentifier>{96697983-4867-43a1-9c51-3d0480ff5640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status">
       <UniqueIdentifier>{1719d750-753c-4f0e-8b7b-bbb6b3b51199}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\00%29 Server\ServerInfo">
-      <UniqueIdentifier>{f0f8f784-a3b2-4db0-a7f7-664932e691aa}</UniqueIdentifier>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status\c. PlayingInfo">
+      <UniqueIdentifier>{701e488d-bab0-404b-8227-2cae9d62b6d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\04%29 Status\BasicInfo">
-      <UniqueIdentifier>{acab76fe-ea4b-4849-9b52-d3722397f639}</UniqueIdentifier>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status\d. PhysicsInfo">
+      <UniqueIdentifier>{fb8a21ec-7940-4b1b-b1f4-1fba5541ed57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\02%29 Physics\PhysicsInfo">
-      <UniqueIdentifier>{a7c37cc7-eab6-4812-82bf-bbaa88a4360d}</UniqueIdentifier>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status\e. RecosterInfo">
+      <UniqueIdentifier>{856f6495-c936-4147-93ba-06878ba596f3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\03%29 Collision\BoxCol">
-      <UniqueIdentifier>{690627a9-b4a9-4ba3-b2e5-14edab0eded2}</UniqueIdentifier>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status\f. BodyCol">
+      <UniqueIdentifier>{e0dfb0e1-615a-41dd-86f6-5c2680b4ff33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status\b. RoomInfo">
+      <UniqueIdentifier>{14a86b97-a4e9-4eeb-9c96-abe30ef7e7b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\03%29 Player Status\a. UserInfo">
+      <UniqueIdentifier>{10c7528b-06ce-4522-b5e5-7df72261c139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\CubeColor">
+      <UniqueIdentifier>{6c4855c5-90c8-43a2-88e5-925f611ce36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene">
+      <UniqueIdentifier>{5db52067-8566-4475-96af-37a6e5daf25a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\01%29 Loading">
+      <UniqueIdentifier>{033957bf-a03f-4a4d-8f27-880e55e558b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\03%29 Lobby">
+      <UniqueIdentifier>{f127b53c-bee4-4008-85eb-7721800d94c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\04%29 Room">
+      <UniqueIdentifier>{181598c3-fd25-41de-9d46-d66897a6c0ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\05%29 InMap">
+      <UniqueIdentifier>{d32160ad-55d3-4366-b02a-fa63a73b0ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scene\02%29 Title">
+      <UniqueIdentifier>{ed8b1f47-0e34-4088-8032-43534ed43552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Mgr\Whole\Renderer">
+      <UniqueIdentifier>{77914f03-1a43-4621-84ee-edea9b4806d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Layer">
+      <UniqueIdentifier>{a2a346af-e13d-4ffc-b0d8-156327e2930d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\Bullet">
+      <UniqueIdentifier>{b5f78302-b1e1-4a01-b1d7-9e2ed2b0ef17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Bg">
+      <UniqueIdentifier>{f4aa0374-0d04-4123-aa2c-40cba7abd47b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\RecosterItem">
+      <UniqueIdentifier>{0aafc4b1-cd64-4e00-9e3b-cb8e4b9f9dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\Bullet\BulletPlayer">
+      <UniqueIdentifier>{5958818d-065b-451e-91cb-1c2f6a1669e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\Bullet\BulletEnemy">
+      <UniqueIdentifier>{eb05ce51-1ed8-4d2d-84da-ef8596cf3e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\Rider">
+      <UniqueIdentifier>{209e4dc0-9aa4-42bb-9a0f-a2f70945c5f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\Rider\Player">
+      <UniqueIdentifier>{c20402f7-dfc9-4ca4-be89-766480cea261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Unit\Rider\Enemy">
+      <UniqueIdentifier>{b0a0017b-753a-423c-b73f-0dda7c419e73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Mgr\Part\KeyMgr">
+      <UniqueIdentifier>{e14f09e1-abe3-4104-9a3b-e8d93b04e6cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Mgr\Part\ResourceMgr">
+      <UniqueIdentifier>{43085f2a-e281-4b41-bd66-42366d750afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="데이터 파일\Fx">
+      <UniqueIdentifier>{971a4bf2-d29b-43a2-a17e-dd045aeef872}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,9 +237,6 @@
     <ClInclude Include="..\Code\Timer.h">
       <Filter>소스 파일\00. Mgr\Whole\Timer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Headers\Struct.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>소스 파일\99. Default</Filter>
     </ClInclude>
@@ -212,9 +245,6 @@
     </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>소스 파일\99. Default</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\Functor.h">
       <Filter>헤더 파일</Filter>
@@ -242,6 +272,54 @@
     </ClInclude>
     <ClInclude Include="..\Code\InfoSubject.h">
       <Filter>소스 파일\00. Design\Observer\Subject\InfoSubject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\UserInfo.h">
+      <Filter>소스 파일\06. Component\03%29 Player Status\a. UserInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\RoomInfo.h">
+      <Filter>소스 파일\06. Component\03%29 Player Status\b. RoomInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\PlayingInfo.h">
+      <Filter>소스 파일\06. Component\03%29 Player Status\c. PlayingInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\PhysicsInfo.h">
+      <Filter>소스 파일\06. Component\03%29 Player Status\d. PhysicsInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\RecosterInfo.h">
+      <Filter>소스 파일\06. Component\03%29 Player Status\e. RecosterInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\CubeColor.h">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeColor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Buffer.h">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Headers\Struct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\BoxCol.h">
+      <Filter>소스 파일\06. Component\02%29 Collision\BoxCol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Collision.h">
+      <Filter>소스 파일\06. Component\02%29 Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Unit.h">
+      <Filter>소스 파일\05. Obj\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Player.h">
+      <Filter>소스 파일\05. Obj\Unit\Rider\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Rider.h">
+      <Filter>소스 파일\05. Obj\Unit\Rider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\ObjMgr.h">
+      <Filter>소스 파일\00. Mgr\Part\ObjMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\KeyMgr.h">
+      <Filter>소스 파일\00. Mgr\Part\KeyMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -315,5 +393,55 @@
     <ClCompile Include="..\Code\InfoSubject.cpp">
       <Filter>소스 파일\00. Design\Observer\Subject\InfoSubject</Filter>
     </ClCompile>
+    <ClCompile Include="..\Code\UserInfo.cpp">
+      <Filter>소스 파일\06. Component\03%29 Player Status\a. UserInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\RoomInfo.cpp">
+      <Filter>소스 파일\06. Component\03%29 Player Status\b. RoomInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\PlayingInfo.cpp">
+      <Filter>소스 파일\06. Component\03%29 Player Status\c. PlayingInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\PhysicsInfo.cpp">
+      <Filter>소스 파일\06. Component\03%29 Player Status\d. PhysicsInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\RecosterInfo.cpp">
+      <Filter>소스 파일\06. Component\03%29 Player Status\e. RecosterInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\CubeColor.cpp">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeColor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Buffer.cpp">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\BoxCol.cpp">
+      <Filter>소스 파일\06. Component\02%29 Collision\BoxCol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Collision.cpp">
+      <Filter>소스 파일\06. Component\02%29 Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Unit.cpp">
+      <Filter>소스 파일\05. Obj\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Player.cpp">
+      <Filter>소스 파일\05. Obj\Unit\Rider\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Rider.cpp">
+      <Filter>소스 파일\05. Obj\Unit\Rider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\ObjMgr.cpp">
+      <Filter>소스 파일\00. Mgr\Part\ObjMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\KeyMgr.cpp">
+      <Filter>소스 파일\00. Mgr\Part\KeyMgr</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\bin\Fx\VertexColor.fx">
+      <Filter>데이터 파일\Fx</Filter>
+    </FxCompile>
+    <FxCompile Include="..\bin\Fx\VertexTexture.fx">
+      <Filter>데이터 파일\Fx</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

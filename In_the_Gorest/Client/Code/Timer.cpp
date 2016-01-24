@@ -28,7 +28,7 @@ void CTimer::InitTime(void)
 }
 
 
-void CTimer::SetTime(void)
+void CTimer::UpdateTime(void)
 {
 	QueryPerformanceCounter(&m_liFrameTime);
 

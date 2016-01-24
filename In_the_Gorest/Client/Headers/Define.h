@@ -17,6 +17,10 @@
 #ifndef Define_h__
 #define Define_h__
 
+#define VS_SLOT_VIEW_MATRIX			0x00
+#define VS_SLOT_PROJECTION_MATRIX	0x01
+#define VS_SLOT_WORLD_MATRIX		0x02
+
 #define GetDeltaTime()		CTimer::GetInstance()->GetTime();
 
 #define MSG_BOX(_message)	MessageBox(NULL, _message, L"System Message", MB_OK)

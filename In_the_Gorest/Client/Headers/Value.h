@@ -18,35 +18,33 @@
 #define Value_h__
 
 
-extern HWND		g_hWnd;
+//extern HWND		g_hWnd;
 
-const float CLIENT_WINCX = 1280;
-const float CLIENT_WINCY = 720;
+const DWORD CLIENT_WINCX = 1280;
+const DWORD CLIENT_WINCY = 720;
 
 
 const WORD		MIN_STR		= 64;
 const WORD		MIDDLE_STR	= 128;
 const WORD		MAX_STR		= 256;
 
-
-const DWORD	KEY_W = 0x00000001;
-const DWORD	KEY_S = 0x00000002;
-const DWORD	KEY_D = 0x00000004;
-const DWORD	KEY_A = 0x00000008;
+const WORD		MAX_KEY		= 256;
 
 
-const DWORD	KEY_CTRL = 0x00000010;
-const DWORD	KEY_SPACE = 0x00000020;
-const DWORD KEY_SHIFT = 0x00000040;
-
-const DWORD KEY_LBUTTON = 0x00000080;
-const DWORD KEY_RBUTTON = 0x00000100;
-const DWORD KEY_WHEEL_UP = 0x00000200;
-const DWORD KEY_WHEEL_DOWN = 0x00000400;
-
-
-const int MAX_GRADE_VALUE		= 8;
-const int MIN_GRADE_VALUE		= 1;
+//const DWORD	KEY_W = 0x00000001;
+//const DWORD	KEY_S = 0x00000002;
+//const DWORD	KEY_D = 0x00000004;
+//const DWORD	KEY_A = 0x00000008;
+//
+//
+//const DWORD	KEY_CTRL = 0x00000010;
+//const DWORD	KEY_SPACE = 0x00000020;
+//const DWORD KEY_SHIFT = 0x00000040;
+//
+//const DWORD KEY_LBUTTON = 0x00000080;
+//const DWORD KEY_RBUTTON = 0x00000100;
+//const DWORD KEY_WHEEL_UP = 0x00000200;
+//const DWORD KEY_WHEEL_DOWN = 0x00000400;
 
 
 #endif // Value_h__

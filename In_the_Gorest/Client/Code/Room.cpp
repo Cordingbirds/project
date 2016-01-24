@@ -2,7 +2,7 @@
 #include "Room.h"
 
 
-CRoom::CRoom(ID3D11Device* _pDevice) :
+CRoom::CRoom(CDevice* _pDevice) :
 CScene(_pDevice)
 {
 }
@@ -12,12 +12,12 @@ CRoom::~CRoom()
 {
 }
 
-CRoom* CRoom::Create(ID3D11Device* _pDevice)
+CRoom* CRoom::Create(CDevice* _pDevice)
 {
 	CRoom* pScene = new CRoom(_pDevice);
 
 	if (FAILED(pScene->Init()))
-		Safe_Delete(pScene);
+		::Safe_Delete(pScene);
 
 	return pScene;
 }

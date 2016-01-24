@@ -17,16 +17,17 @@
 #ifndef Layer_h__
 #define Layer_h__
 
+class CDevice;
 class CObj;
 class CComponent;
 class CLayer
 {
 private :
-	ID3D11Device*				m_pDevice;
+	CDevice*				m_pDevice;
 	map<wstring, list<CObj*>>	m_mapObjList;
 
 public :
-	static CLayer*		Create(ID3D11Device* _pDevice);
+	static CLayer*		Create(CDevice* _pDevice);
 	HRESULT				AddObj(const wstring& _wstrObjKey, CObj* _pObj);	
 	const CComponent*	GetComponent(const wstring& _wstrObjKey, const wstring& _wstrComponentKey);
 
@@ -41,7 +42,7 @@ private :
 
 
 private:
-	explicit CLayer(ID3D11Device* _pDevice);
+	explicit CLayer(CDevice* _pDevice);
 public:
 	~CLayer();
 };

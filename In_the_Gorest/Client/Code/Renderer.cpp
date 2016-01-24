@@ -4,7 +4,7 @@
 #include "Device.h"
 
 CRenderer::CRenderer(CDevice* _pDevice) :
-m_pDeviceClass(_pDevice),
+m_pDevice(_pDevice),
 m_pScene(NULL)
 {
 
@@ -20,7 +20,7 @@ CRenderer* CRenderer::Create(CDevice* _pDeviceClass)
 	CRenderer* pRenderer = new CRenderer(_pDeviceClass);
 
 	if (FAILED(pRenderer->Init()))
-		Safe_Delete(pRenderer);
+		::Safe_Delete(pRenderer);
 
 
 	return pRenderer;
@@ -33,12 +33,12 @@ HRESULT CRenderer::Init()
 
 void CRenderer::Render()
 {
-	m_pDeviceClass->Render_Begin();
+	m_pDevice->Render_Begin();
 
 	if (m_pScene != NULL)
 		m_pScene->Render();
 	
-	m_pDeviceClass->Render_End();
+	m_pDevice->Render_End();
 }
 
 
