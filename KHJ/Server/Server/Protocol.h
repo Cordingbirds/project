@@ -49,7 +49,6 @@ struct CS_ItemGet{					// 아이템 획득
 
 struct CS_Use_Recuster{				// 리커스터 사용
 	int ID;
-	int targetID;
 	BYTE itemType;
 	int Room;						// 방 번호
 	BYTE type;
