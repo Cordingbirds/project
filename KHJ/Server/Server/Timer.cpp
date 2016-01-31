@@ -7,7 +7,7 @@ using namespace std;
 CTimer::CTimer(){}
 CTimer::~CTimer(){}
 
-void CTimer :: CountTime(){
+void CTimer :: TimeCount(){
 	DWORD startsec = 0;
 	int startmin = 0;
 	int countsec = 0;				//계속 변하는 sec값

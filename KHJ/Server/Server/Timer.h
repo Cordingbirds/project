@@ -12,9 +12,8 @@ public:
 	~CTimer();
 
 	int m_time;
-	
 
-	void CountTime();
-	void CountState(int state);
+	void TimeCount();
+	void TimeState(int state);
 
 };

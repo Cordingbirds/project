@@ -76,8 +76,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Gun.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Server.cpp" />
@@ -85,10 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Gun.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Protocol.h" />
+    <ClInclude Include="Server.h" />
     <ClInclude Include="SingleTon.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -31,6 +28,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Gun.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,6 +54,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Gun.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

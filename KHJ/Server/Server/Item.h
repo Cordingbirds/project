@@ -12,7 +12,7 @@ public:
 
 	bool isExist;									//아이템 존재 여부
 
-	void SetItem(float x, float y, float z);
-	void AvoidItem(bool m_exist);
+	void ItemSet(float x, float y, float z);
+	void ItemAvoid(bool m_exist);
 
 };
