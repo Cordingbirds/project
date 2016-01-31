@@ -17,13 +17,14 @@
 #ifndef Scene_h__
 #define Scene_h__
 
+#include "Layer.h"
+
 class CDevice;
-class CLayer;
 class CScene
 {
 protected:
 	CDevice*				m_pDevice;
-	map<WORD, CLayer*>		m_mapLayer;
+	CLayer*					m_pLayer[CLayer::LAYERTYPE_END];
 
 public:
 	virtual HRESULT		Init()			PURE;

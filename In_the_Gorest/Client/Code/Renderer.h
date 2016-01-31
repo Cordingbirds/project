@@ -20,11 +20,13 @@
 #include "Scene.h"
 
 class CDevice;
+class CColorShader;
 class CRenderer
 {
 private :
 	CDevice*		m_pDevice;
 	CScene*			m_pScene;
+	CColorShader*	m_pColorShader;
 
 public :
 	static CRenderer* Create(CDevice* _pDeviceClass);

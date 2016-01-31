@@ -42,6 +42,8 @@ using namespace  std;
 #include <D3DX10.h>
 #include <D3D10.h>
 
+#include <d3dcompiler.h>
+
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
 
@@ -74,6 +76,10 @@ using namespace  std;
 #endif
 
 #include <crtdbg.h>
+
+
+// FBX ------------------
+//#include <fbxsdk.h>
 
 
 // Waring -----------------------------

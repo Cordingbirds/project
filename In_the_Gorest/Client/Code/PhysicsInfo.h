@@ -20,8 +20,13 @@
 #include "Component.h"
 #include "Enum.h"
 
+class CDevice;
 class CPhysicsInfo : public CComponent
 {
+public :
+	CDevice*		m_pDevice;
+	ID3D11Buffer*	m_pWorldBuffer;
+
 public:
 	D3DXVECTOR3		m_vPos;
 	D3DXVECTOR3		m_vDir;
@@ -29,21 +34,26 @@ public:
 
 	D3DXMATRIX		m_matWorld;
 
-
 	float			m_fSpeed;
 	float			m_fAccel;
 	float			m_fWeight;
 
 
 public:
-	static CComponent*		Create();
+	static CComponent*		Create(CDevice*);
 public :
+	void					Init();
 	virtual void			Update();
 private:
 	virtual void			Release();
 
+
+private:
+	void Init_WorldBuffer();
+
+
 public:
-	explicit CPhysicsInfo();
+	explicit CPhysicsInfo(CDevice*);
 	virtual ~CPhysicsInfo();
 };
 

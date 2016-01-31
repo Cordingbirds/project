@@ -3,7 +3,8 @@
 
 #include "Function.h"
 
-#include "CubeColor.h"
+#include "ResourceMgr.h"
+#include "CubeBuffer.h"
 
 
 CBoxCol::CBoxCol(CDevice* _pDevice)
@@ -13,7 +14,7 @@ CBoxCol::CBoxCol(CDevice* _pDevice)
 
 , m_pOwnerPos(NULL)
 , m_vPlusPos(0.f, 0.f, 0.f)
-, m_vScale(0.f, 0.f, 0.f)
+, m_vScale(1.f, 1.f, 1.f)
 {
 
 }
@@ -34,25 +35,52 @@ CComponent* CBoxCol::Create(CDevice* _pDevice)
 
 HRESULT CBoxCol::Init()
 {
-	//m_pBuffer = dynamic_cast<CCubeColor*>(CCubeColor::Clone());
-	//NULL_CHECK_RETURN(m_pBuffer, S_FALSE);
-	// 리소스 매니저 만들어서 CubeColor을 Clone 해야함 (수정)
+	m_pBuffer = dynamic_cast<CBuffer*>(CResourceMgr::GetInstance()->
+		CloneResource(CResourceMgr::RESOURCE_TYPE_DYNAMIC, L"CubeColor"));
+	NULL_CHECK_RETURN(m_pBuffer, E_FAIL);
 
+
+	D3D11_BUFFER_DESC tBuffer;
+	ZeroMemory(&tBuffer, sizeof(D3D11_BUFFER_DESC));
+	tBuffer.Usage = D3D11_USAGE_DYNAMIC;
+	tBuffer.ByteWidth = sizeof(D3DXMATRIX);
+	tBuffer.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	tBuffer.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+	m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pWorldBuffer);
 
 	return S_OK;
 }
 
 void CBoxCol::Update()
 {
-
+	m_pBuffer->Update();
 }
 
 void CBoxCol::Render()
 {
-	D3DXMATRIX matWorld;
-	D3DXMatrixIdentity(&matWorld);
+	D3DXMATRIX	matScale, matTrans, matWolrd;
+	D3DXMatrixScaling(&matScale, m_vScale.x, m_vScale.y, m_vScale.z);
+	D3DXMatrixTranslation(
+		&matTrans,
+		m_pOwnerPos->x + m_vPlusPos.x,
+		m_pOwnerPos->y + m_vPlusPos.y,
+		m_pOwnerPos->z + m_vPlusPos.z);
 
-	//
+	matWolrd = matScale * matTrans;
+
+	D3D11_MAPPED_SUBRESOURCE tSubreResource;
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
+	pDeviceContext->Map(m_pWorldBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &tSubreResource);
+
+	D3DXMATRIX* pMatWorld = (D3DXMATRIX*)(tSubreResource.pData);
+	D3DXMatrixTranspose(pMatWorld, &matWolrd);
+
+	pDeviceContext->Unmap(m_pWorldBuffer, 0);
+	pDeviceContext->VSSetConstantBuffers(VS_SLOT_WORLD_MATRIX, 1, &m_pWorldBuffer);
+
+
+	m_pBuffer->Render();
 }
 
 void CBoxCol::Release()

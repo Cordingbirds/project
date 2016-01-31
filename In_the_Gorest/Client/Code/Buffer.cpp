@@ -36,10 +36,11 @@ void CBuffer::Render()
 	pDeviceContext->IASetIndexBuffer(m_pIdxBuffer, DXGI_FORMAT_R32_UINT, 0);
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	if (m_pRasterizerState) pDeviceContext->RSSetState(m_pRasterizerState);
+	if (m_pRasterizerState)
+		pDeviceContext->RSSetState(m_pRasterizerState);
 
-	pDeviceContext->Draw((UINT)m_nVtxNum, (UINT)m_nVtxOffset);
 	pDeviceContext->DrawIndexed(m_nIdxNum, m_nStartIdx, m_nPlusIdx);
+	pDeviceContext->Draw((UINT)m_nVtxNum, (UINT)m_nVtxOffset);
 }
 
 void CBuffer::CreateRasterizerState()
@@ -55,8 +56,8 @@ void CBuffer::ReleaseBuffer()
 {
 	if((*m_pRefCnt) == 0)
 	{
-		m_pVtxBuffer->Release();
-		m_pIdxBuffer->Release();
+		::Safe_Release(m_pVtxBuffer);
+		::Safe_Release(m_pIdxBuffer);
 
 		::Safe_Delete(m_pVtxBuffer);
 		::Safe_Delete(m_pIdxBuffer);

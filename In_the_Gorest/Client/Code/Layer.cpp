@@ -4,8 +4,8 @@
 #include "Obj.h"
 
 
-CLayer::CLayer(CDevice* _pDevice) :
-m_pDevice(_pDevice)
+CLayer::CLayer(CDevice* _pDevice)
+: m_pDevice(_pDevice)
 {
 
 }

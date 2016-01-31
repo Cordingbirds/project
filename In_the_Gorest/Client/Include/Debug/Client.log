@@ -1,48 +1,14 @@
-﻿빌드 시작: 2016-01-25 오전 5:59:21
+﻿빌드 시작: 2016-01-31 오후 3:55:13
      1>2 노드의 "C:\Users\김몰랑\Desktop\졸업작품\project\In_the_Gorest\Client\Include\Client.vcxproj" 프로젝트(Build 대상)입니다.
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../Code /I../Headers /I../../Reference/Headers /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Client.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Code\KeyMgr.cpp ..\Code\MainGame.cpp
-         MainGame.cpp
-         KeyMgr.cpp
+     1>FxCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\fxc.exe /nologo /E"main" /T fx_4_0 /Fo "../bin/VertexTexture.cso" /Od /Zi ..\bin\Data\Fx\VertexTexture.fx 
+     1>FXC : warning X4717: Effects deprecated for D3DCompiler_47
+         
+         compilation object save succeeded; see C:\Users\김몰랑\Desktop\졸업작품\project\In_the_Gorest\Client\bin\VertexTexture.cso
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/Client.exe" /INCREMENTAL /NOLOGO /LIBPATH:../../Reference/Librarys kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"../bin/Client.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../bin/Client.lib" /MACHINE:X86 Debug\Client.res
-         Debug\BoxCol.obj
-         Debug\Buffer.obj
-         Debug\Collision.obj
-         Debug\Component.obj
-         Debug\CubeColor.obj
-         Debug\Device.obj
-         Debug\InfoSubject.obj
-         Debug\InMap.obj
-         Debug\KeyMgr.obj
-         Debug\Layer.obj
-         Debug\Loading.obj
-         Debug\Lobby.obj
-         Debug\MainGame.obj
-         Debug\Obj.obj
-         Debug\ObjMgr.obj
-         Debug\Observer.obj
-         Debug\PhysicsInfo.obj
-         Debug\Player.obj
-         Debug\PlayingInfo.obj
-         Debug\RecosterInfo.obj
-         Debug\Renderer.obj
-         Debug\Resource.obj
-         Debug\Rider.obj
-         Debug\Room.obj
-         Debug\RoomInfo.obj
-         Debug\Scene.obj
-         Debug\SceneMgr.obj
-         Debug\Subject.obj
-         Debug\Timer.obj
-         Debug\Title.obj
-         Debug\Unit.obj
-         Debug\UserInfo.obj
-         Debug\Client.obj
-         Debug\stdafx.obj
          Client.vcxproj -> C:\Users\김몰랑\Desktop\졸업작품\project\In_the_Gorest\Client\Include\../bin/Client.exe
      1>"C:\Users\김몰랑\Desktop\졸업작품\project\In_the_Gorest\Client\Include\Client.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
 
 빌드했습니다.
 
-경과 시간: 00:00:01.10
+경과 시간: 00:00:00.18

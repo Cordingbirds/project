@@ -33,9 +33,10 @@ HRESULT CMainGame::Init()
 	m_pTimer = CTimer::GetInstance();
 	m_pKeyMgr = CKeyMgr::GetInstance();
 
+
 	// Mgr Init ----------------
 	m_pSceneMgr->Init(m_pDevice);
-	m_pSceneMgr->SetScene(CSceneMgr::SCENE_ID_LODING);
+	m_pSceneMgr->SetScene(CSceneMgr::SCENE_ID_INMAP);
 	m_pTimer->InitTime();
 	m_pKeyMgr->Init(g_hInst, g_hWnd);
 

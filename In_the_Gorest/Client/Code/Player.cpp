@@ -26,6 +26,10 @@ HRESULT CPlayer::Init()
 {
 	m_eObjState = CObj::OBJ_STATE_ALIVE;
 
+	m_pBoxCol->m_pOwnerPos = &(m_pPhysicsInfo->m_vPos);
+	m_pBoxCol->m_vScale = D3DXVECTOR3(1.f, 1.f, 3.f);
+
+
 	return S_OK;
 }
 
@@ -54,12 +58,7 @@ int CPlayer::Update()
 
 void CPlayer::Render()
 {
-	//D3D11_MAPPED_SUBRESOURCE tmappedResiurce;
-	//tmappedResiurce->Map(m_pWorldMarixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &tmappedResiurce);
-	//m_pPhysicsInfo->m_matWorld = (D3DXMATRIX)tmappedResiurce.pData;
-
-	//m_pDevice->GetDeviceCon()->VSSetConstantBuffers(
-	// 상수 버퍼 (수정)
+	m_pBoxCol->Render();
 }
 
 void CPlayer::Release()

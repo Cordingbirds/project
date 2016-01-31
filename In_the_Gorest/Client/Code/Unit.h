@@ -27,16 +27,17 @@
 
 class CUnit abstract : public CObj
 {
-//protected:
-	ID3D11Buffer*		m_pWorldMarixBuffer;
-
 protected :
 	CPhysicsInfo*		m_pPhysicsInfo;
 	CBoxCol*			m_pBoxCol;
 
 private :
-	void	CreateWorldMarixBuffer(CDevice* _pDevice);
 	void	AddComponent();
+
+
+public :
+	void SetPos(const D3DXVECTOR3& _vPos)		{ m_pPhysicsInfo->m_vPos = _vPos; }
+
 
 protected:
 	explicit CUnit(CDevice* _pDevice);

@@ -24,7 +24,7 @@ bool CheckMouseDown(MouseType _eKeyFlag);		마우스가 처음 눌렸을 때 true 반환
 bool CheckMousePress(MouseType _eKeyFlag);		마우스가 눌려있을 경우 true 반환
 bool CheckMousePressed(MouseType _eKeyFlag);	마우스가 눌리고 떼졌을 때 true 반환	
 
-if (m_pKeyMgr->CheckKeyBordDown(DIK_S))
+if (m_pKeyMgr->CheckKeyboardDown(DIK_S))
 {
 	// S 키가 처음 눌렸을 때 처리
 }

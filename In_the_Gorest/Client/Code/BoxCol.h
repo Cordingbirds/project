@@ -24,6 +24,7 @@ class CBoxCol : public CCollision
 {
 private:
 	CBuffer*		m_pBuffer;
+	ID3D11Buffer*	m_pWorldBuffer;
 
 public:
 	D3DXVECTOR3*		m_pOwnerPos;

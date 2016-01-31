@@ -22,6 +22,16 @@ class CObj;
 class CComponent;
 class CLayer
 {
+public :
+	static enum LayerType
+	{
+		LAYERTYPE_ENVIRONMENT,
+		LAYERTYPE_GAMELOGIC,
+		LAYERTYPE_UI,
+
+		LAYERTYPE_END
+	};
+
 private :
 	CDevice*				m_pDevice;
 	map<wstring, list<CObj*>>	m_mapObjList;
@@ -31,7 +41,7 @@ public :
 	HRESULT				AddObj(const wstring& _wstrObjKey, CObj* _pObj);	
 	const CComponent*	GetComponent(const wstring& _wstrObjKey, const wstring& _wstrComponentKey);
 
-	map<wstring, list<CObj*>>* GetMapObjList() { return &m_mapObjList; }
+	map<wstring, list<CObj*>>*	GetMapObjList()		{ return &m_mapObjList; }
 
 
 public :

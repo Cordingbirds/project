@@ -27,7 +27,7 @@ protected:
 	WORD*					m_pRefCnt;
 
 public:
-	virtual CComponent*		Clone()		PURE;
+	virtual CResource*		Clone()		PURE;
 	virtual void			Update()	PURE;
 private :
 	virtual void			Release()	PURE;

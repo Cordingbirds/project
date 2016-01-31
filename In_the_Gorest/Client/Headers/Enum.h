@@ -26,7 +26,7 @@ enum Radian
 	RADIAN_END
 };
 
-// (수정) 얘는 나중에 맵 로드 하는 클래스 헤더에 넣어주자.
+// (수정) 나중에 LoadMgr에 넣어주자
 enum MapType
 {
 	MAP_TYPE_GORESTTREE,

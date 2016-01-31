@@ -127,9 +127,6 @@
     <Filter Include="소스 파일\06. Component\03%29 Player Status\a. UserInfo">
       <UniqueIdentifier>{10c7528b-06ce-4522-b5e5-7df72261c139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\CubeColor">
-      <UniqueIdentifier>{6c4855c5-90c8-43a2-88e5-925f611ce36f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\03. Scene">
       <UniqueIdentifier>{5db52067-8566-4475-96af-37a6e5daf25a}</UniqueIdentifier>
     </Filter>
@@ -181,11 +178,38 @@
     <Filter Include="소스 파일\00. Mgr\Part\KeyMgr">
       <UniqueIdentifier>{e14f09e1-abe3-4104-9a3b-e8d93b04e6cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\00. Mgr\Part\ResourceMgr">
-      <UniqueIdentifier>{43085f2a-e281-4b41-bd66-42366d750afd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="데이터 파일\Fx">
       <UniqueIdentifier>{971a4bf2-d29b-43a2-a17e-dd045aeef872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\04%29 Shader">
+      <UniqueIdentifier>{f7f8bcae-371a-4caa-8d19-121d1814a3ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Camera\DynamicCamera">
+      <UniqueIdentifier>{41136610-609d-42a4-9b1f-e1c6a7a82c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05. Obj\Camera\StaticCamera">
+      <UniqueIdentifier>{3ff5acd5-9863-4522-98a6-e522b4d39982}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\04%29 Shader\TextureSharder">
+      <UniqueIdentifier>{b677b66e-2c2a-4cf1-b7b8-98b54bbf235e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\04%29 Shader\ColorShader">
+      <UniqueIdentifier>{b43c57da-68fc-43f0-b7fa-d0fcf8966035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Mgr\Part\ResourceMgr">
+      <UniqueIdentifier>{016da50a-d6b5-465c-baa1-375392a86f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\CubeBuffer">
+      <UniqueIdentifier>{6c4855c5-90c8-43a2-88e5-925f611ce36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer">
+      <UniqueIdentifier>{8453a812-203f-418c-88d9-16b7147e4f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\DynamicFbx">
+      <UniqueIdentifier>{09e74246-8b9a-47c8-a849-c744eaee5835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\StaticFbx">
+      <UniqueIdentifier>{0fa4d68e-d6c6-4f27-9cd9-0dd1f1ab78ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -291,9 +315,6 @@
     <ClInclude Include="..\Code\RecosterInfo.h">
       <Filter>소스 파일\06. Component\03%29 Player Status\e. RecosterInfo</Filter>
     </ClInclude>
-    <ClInclude Include="..\Code\CubeColor.h">
-      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeColor</Filter>
-    </ClInclude>
     <ClInclude Include="..\Code\Buffer.h">
       <Filter>소스 파일\06. Component\01%29 Resource\Buffer</Filter>
     </ClInclude>
@@ -320,6 +341,30 @@
     </ClInclude>
     <ClInclude Include="..\Code\KeyMgr.h">
       <Filter>소스 파일\00. Mgr\Part\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Shader.h">
+      <Filter>소스 파일\06. Component\04%29 Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Camera.h">
+      <Filter>소스 파일\05. Obj\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\ColorShader.h">
+      <Filter>소스 파일\06. Component\04%29 Shader\ColorShader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\ResourceMgr.h">
+      <Filter>소스 파일\00. Mgr\Part\ResourceMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\DynamicCamera.h">
+      <Filter>소스 파일\05. Obj\Camera\DynamicCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\CubeBuffer.h">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\FbxBuffer.h">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\StaticFbx.h">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\StaticFbx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -408,9 +453,6 @@
     <ClCompile Include="..\Code\RecosterInfo.cpp">
       <Filter>소스 파일\06. Component\03%29 Player Status\e. RecosterInfo</Filter>
     </ClCompile>
-    <ClCompile Include="..\Code\CubeColor.cpp">
-      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeColor</Filter>
-    </ClCompile>
     <ClCompile Include="..\Code\Buffer.cpp">
       <Filter>소스 파일\06. Component\01%29 Resource\Buffer</Filter>
     </ClCompile>
@@ -435,12 +477,36 @@
     <ClCompile Include="..\Code\KeyMgr.cpp">
       <Filter>소스 파일\00. Mgr\Part\KeyMgr</Filter>
     </ClCompile>
+    <ClCompile Include="..\Code\Shader.cpp">
+      <Filter>소스 파일\06. Component\04%29 Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Camera.cpp">
+      <Filter>소스 파일\05. Obj\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\ColorShader.cpp">
+      <Filter>소스 파일\06. Component\04%29 Shader\ColorShader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\ResourceMgr.cpp">
+      <Filter>소스 파일\00. Mgr\Part\ResourceMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\DynamicCamera.cpp">
+      <Filter>소스 파일\05. Obj\Camera\DynamicCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\CubeBuffer.cpp">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\FbxBuffer.cpp">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\StaticFbx.cpp">
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\StaticFbx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\bin\Fx\VertexColor.fx">
+    <FxCompile Include="..\bin\Data\Fx\VertexColor.fx">
       <Filter>데이터 파일\Fx</Filter>
     </FxCompile>
-    <FxCompile Include="..\bin\Fx\VertexTexture.fx">
+    <FxCompile Include="..\bin\Data\Fx\VertexTexture.fx">
       <Filter>데이터 파일\Fx</Filter>
     </FxCompile>
   </ItemGroup>

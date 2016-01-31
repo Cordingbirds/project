@@ -44,6 +44,8 @@ HRESULT CSceneMgr::SetScene(SceneID _eSceneID)
 	NULL_CHECK_RETURN(m_pScene, E_FAIL);
 	FAILED_CHECK(m_pScene->Init());
 
+	m_pRenderer->SetScene(m_pScene);
+
 	return S_OK;
 }
 
@@ -58,7 +60,7 @@ HRESULT CSceneMgr::Init(CDevice* _pDevice)
 void CSceneMgr::Update()
 {
 	if (m_pScene != NULL)
-		m_pScene->Update_Layer();
+		m_pScene->Update();
 }
 
 void CSceneMgr::Render()

@@ -89,9 +89,9 @@ HRESULT CDevice::Init(WinMode _eWinMode)
 	FAILED_CHECK(dxgiFactory->CreateSwapChain(m_pDevice, &swapChain, &m_pSwapChain));
 
 
-	dxgiDevice->Release();
-	dxgiAdapter->Release();
-	dxgiFactory->Release();
+	::Safe_Release(dxgiDevice);
+	::Safe_Release(dxgiAdapter);
+	::Safe_Release(dxgiFactory);
 
 
 	FAILED_CHECK(m_pSwapChain->ResizeBuffers(
@@ -105,7 +105,7 @@ HRESULT CDevice::Init(WinMode _eWinMode)
 	FAILED_CHECK(m_pDevice->CreateRenderTargetView(backBuffer, 0, &m_pRenderTargetView));
 
 
-	backBuffer->Release();
+	::Safe_Release(backBuffer);
 
 
 	D3D11_TEXTURE2D_DESC depthStencil;
@@ -151,16 +151,16 @@ HRESULT CDevice::Init(WinMode _eWinMode)
 
 void CDevice::Release()
 {
-	m_pDepthStencilView->Release();
-	m_pDepthStencilBuffer->Release();
-	m_pRenderTargetView->Release();
-	m_pSwapChain->Release();
+	::Safe_Release(m_pDepthStencilView);
+	::Safe_Release(m_pDepthStencilBuffer);
+	::Safe_Release(m_pRenderTargetView);
+	::Safe_Release(m_pSwapChain);
 
+	if (m_pDeviceContext)
+		::Safe_Release(m_pDeviceContext);
 
-	if (m_pDeviceContext) m_pDeviceContext->ClearState();
-
-	m_pDeviceContext->Release();
-	m_pDevice->Release();
+	::Safe_Release(m_pDeviceContext);
+	::Safe_Release(m_pDevice);
 }
 
 void CDevice::Render_Begin(void)

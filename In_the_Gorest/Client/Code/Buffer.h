@@ -21,7 +21,7 @@
 
 
 class CDevice;
-class CBuffer : public CResource
+class CBuffer abstract : public CResource
 {
 protected:
 	ID3D11RasterizerState*		m_pRasterizerState;
@@ -39,12 +39,9 @@ protected: // Index
 	UINT				m_nPlusIdx;
 
 
-public:
-	virtual CComponent*		Clone()		PURE;
-	virtual void			Update()	PURE;
+public :
 	virtual void			Render();
-private:
-	virtual void			Release()	PURE;
+
 
 protected:
 	virtual void	CreateRasterizerState();
@@ -53,14 +50,13 @@ protected:
 protected:
 	explicit CBuffer(CDevice*);
 public :
-	virtual ~CBuffer();
+	virtual ~CBuffer()		PURE;
 };
 
 
 struct VertexColor
 {
 	D3DXVECTOR3		vPos;
-	D3DXVECTOR3		vNormal;
 	D3DXVECTOR4		vColor;
 };
 
@@ -74,11 +70,15 @@ struct VertexTexture
 struct Index16
 {
 	WORD	_1, _2, _3;
+
+	Index16(WORD _1, WORD _2, WORD _3) : _1(_1), _2(_2), _3(_3) {}
 };
 
 struct Index32
 {
 	DWORD	_1, _2, _3;
+
+	Index32(DWORD _1, DWORD _2, DWORD _3) : _1(_1), _2(_2), _3(_3) {}
 };
 
 
