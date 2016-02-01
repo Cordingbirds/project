@@ -2,8 +2,6 @@
 #include "CubeBuffer.h"
 
 #include "ColorShader.h"
-#include "Struct.h"
-#include "Function.h"
 
 
 CCubeBuffer::CCubeBuffer(CDevice* _pDevice)
@@ -39,10 +37,10 @@ CResource* CCubeBuffer::Clone()
 HRESULT CCubeBuffer::Init()
 {
 	m_nVtxNum		= 8;
-	m_nVtxByte		= sizeof(VertexColor) * 8;
+	m_nVtxStride	= sizeof(VertexColor);
 	m_nVtxOffset	= 0;
 
-	m_nIdxNum		= 12;
+	m_nIdxNum		= 36;
 	m_nStartIdx		= 0;
 	m_nPlusIdx		= 0;
 
@@ -86,7 +84,7 @@ void CCubeBuffer::Init_Vtx()
 	D3D11_BUFFER_DESC tBufferDesc;
 	ZeroMemory(&tBufferDesc, sizeof(D3D11_BUFFER_DESC));
 	tBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	tBufferDesc.ByteWidth = m_nVtxByte;
+	tBufferDesc.ByteWidth = m_nVtxStride * m_nVtxNum;
 	tBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	tBufferDesc.CPUAccessFlags = 0;
 	tBufferDesc.StructureByteStride = 0;
@@ -94,50 +92,62 @@ void CCubeBuffer::Init_Vtx()
 	D3D11_SUBRESOURCE_DATA tData;
 	ZeroMemory(&tData, sizeof(D3D11_SUBRESOURCE_DATA));
 	tData.pSysMem = pVertex;
-	m_pDevice->GetDevice()->CreateBuffer(&tBufferDesc, &tData, &m_pVtxBuffer);
+	FAILED_CHECK_RETURN(
+		m_pDevice->GetDevice()->CreateBuffer(&tBufferDesc, &tData, &m_pVtxBuffer), );
 }
 
 void CCubeBuffer::Init_Idx()
 {
-	Index32 pIdx[] =
+	Index16 pIdx[] =
 	{
 		// Front
-		{ Index32(0, 1, 2) },
-		{ Index32(0, 2, 3) },
+		{ Index16(0, 1, 2) },
+		{ Index16(0, 2, 3) },
 
 		// Right
-		{ Index32(1, 5, 6) },
-		{ Index32(1, 6, 2) },
+		{ Index16(1, 5, 6) },
+		{ Index16(1, 6, 2) },
 
 		// Bottom
-		{ Index32(3, 2, 6) },
-		{ Index32(3, 6, 7) },
+		{ Index16(3, 2, 6) },
+		{ Index16(3, 6, 7) },
 
 		// Left
-		{ Index32(4, 0, 3) },
-		{ Index32(4, 3, 7) },
+		{ Index16(4, 0, 3) },
+		{ Index16(4, 3, 7) },
 
 		// Top
-		{ Index32(4, 5, 1) },
-		{ Index32(4, 1, 0) },
+		{ Index16(4, 5, 1) },
+		{ Index16(4, 1, 0) },
 
 		// Back
-		{ Index32(5, 4, 7) },
-		{ Index32(5, 7, 6) },
+		{ Index16(5, 4, 7) },
+		{ Index16(5, 7, 6) }
 	};
 
 
 	D3D11_BUFFER_DESC tBufferDesc;
 	ZeroMemory(&tBufferDesc, sizeof(D3D11_BUFFER_DESC));
 	tBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	tBufferDesc.ByteWidth = sizeof(Index32) * m_nIdxNum;
+	tBufferDesc.ByteWidth = sizeof(DWORD) * m_nIdxNum;
 	tBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	tBufferDesc.CPUAccessFlags = 0;
 
 	D3D11_SUBRESOURCE_DATA tData;
 	ZeroMemory(&tData, sizeof(D3D11_SUBRESOURCE_DATA));
 	tData.pSysMem = pIdx;
-	m_pDevice->GetDevice()->CreateBuffer(&tBufferDesc, &tData, &m_pIdxBuffer);
+	FAILED_CHECK_RETURN(
+		m_pDevice->GetDevice()->CreateBuffer(&tBufferDesc, &tData, &m_pIdxBuffer), );
+}
+
+
+void CCubeBuffer::CreateRasterizerState()
+{
+	D3D11_RASTERIZER_DESC tRasterizerDest;
+	ZeroMemory(&tRasterizerDest, sizeof(D3D11_RASTERIZER_DESC));
+	tRasterizerDest.CullMode = D3D11_CULL_NONE;
+	tRasterizerDest.FillMode = D3D11_FILL_WIREFRAME;
+	m_pDevice->GetDevice()->CreateRasterizerState(&tRasterizerDest, &m_pRasterizerState);
 }
 
 void CCubeBuffer::Update()
@@ -147,12 +157,11 @@ void CCubeBuffer::Update()
 
 void CCubeBuffer::Render()
 {
-	m_pColorShader->Render();
 	CBuffer::Render();
+	m_pColorShader->Render();
 }
 
 void CCubeBuffer::Release()
 {
 
 }
-

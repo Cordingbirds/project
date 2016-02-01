@@ -38,8 +38,9 @@ private:
 
 
 private :
-	void		Init_Vtx();
-	void		Init_Idx();
+	void			Init_Vtx();
+	void			Init_Idx();
+	virtual void	CreateRasterizerState();
 
 protected:
 	explicit CCubeBuffer(CDevice*);

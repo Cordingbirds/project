@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "PhysicsInfo.h"
 
-#include "Function.h"
-
 
 CPhysicsInfo::CPhysicsInfo(CDevice* _pDevice)
 : m_pDevice(_pDevice)
@@ -31,11 +29,12 @@ void CPhysicsInfo::Init_WorldBuffer()
 	D3D11_BUFFER_DESC tBuffer;
 	ZeroMemory(&tBuffer, sizeof(D3D11_BUFFER_DESC));
 	tBuffer.Usage = D3D11_USAGE_DYNAMIC;
-	tBuffer.ByteWidth = sizeof(D3DXMATRIX);
+	tBuffer.ByteWidth = sizeof(Buffer_World);
 	tBuffer.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	tBuffer.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
-	m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pWorldBuffer);
+	FAILED_CHECK_RETURN(
+		m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pWorldBuffer), );
 }
 
 CComponent* CPhysicsInfo::Create(CDevice* _pDevice)
@@ -54,11 +53,11 @@ void CPhysicsInfo::Update()
 
 
 	D3D11_MAPPED_SUBRESOURCE tSubreResource;
-	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceContext();
 	pDeviceContext->Map(m_pWorldBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &tSubreResource);
 
-	D3DXMATRIX* pMatWorld = (D3DXMATRIX*)(tSubreResource.pData);
-	D3DXMatrixTranspose(pMatWorld, &m_matWorld);
+	Buffer_World* pMatWorld = (Buffer_World*)tSubreResource.pData;
+	D3DXMatrixTranspose(&pMatWorld->m_matWorld, &m_matWorld);
 
 	pDeviceContext->Unmap(m_pWorldBuffer, 0);
 	pDeviceContext->VSSetConstantBuffers(VS_SLOT_WORLD_MATRIX, 1, &m_pWorldBuffer);

@@ -45,7 +45,6 @@
     <ClInclude Include="..\Code\Scene.h" />
     <ClInclude Include="..\Code\SceneMgr.h" />
     <ClInclude Include="..\Code\Shader.h" />
-    <ClInclude Include="..\Code\StaticFbx.h" />
     <ClInclude Include="..\Code\Subject.h" />
     <ClInclude Include="..\Code\Timer.h" />
     <ClInclude Include="..\Code\Title.h" />
@@ -103,7 +102,6 @@
     <ClCompile Include="..\Code\Scene.cpp" />
     <ClCompile Include="..\Code\SceneMgr.cpp" />
     <ClCompile Include="..\Code\Shader.cpp" />
-    <ClCompile Include="..\Code\StaticFbx.cpp" />
     <ClCompile Include="..\Code\Subject.cpp" />
     <ClCompile Include="..\Code\Timer.cpp" />
     <ClCompile Include="..\Code\Title.cpp" />

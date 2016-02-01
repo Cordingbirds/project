@@ -10,7 +10,7 @@ CBuffer::CBuffer(CDevice* _pDevice)
 
 , m_pVtxBuffer(NULL)
 , m_nVtxNum(0)
-, m_nVtxByte(0)
+, m_nVtxStride(0)
 , m_nVtxOffset(0)
 
 , m_pIdxBuffer(NULL)
@@ -31,16 +31,16 @@ void CBuffer::Render()
 	if (NULL == m_pVtxBuffer)
 		return;
 
-	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
-	pDeviceContext->IASetVertexBuffers(0, 1, &m_pVtxBuffer, &m_nVtxByte, &m_nVtxOffset);
-	pDeviceContext->IASetIndexBuffer(m_pIdxBuffer, DXGI_FORMAT_R32_UINT, 0);
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceContext();
+	pDeviceContext->IASetVertexBuffers(0, 1, &m_pVtxBuffer, &m_nVtxStride, &m_nVtxOffset);
+	pDeviceContext->IASetIndexBuffer(m_pIdxBuffer, DXGI_FORMAT_R16_UINT, 0);
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	if (m_pRasterizerState)
 		pDeviceContext->RSSetState(m_pRasterizerState);
 
 	pDeviceContext->DrawIndexed(m_nIdxNum, m_nStartIdx, m_nPlusIdx);
-	pDeviceContext->Draw((UINT)m_nVtxNum, (UINT)m_nVtxOffset);
+	pDeviceContext->Draw(m_nVtxNum, m_nVtxOffset);
 }
 
 void CBuffer::CreateRasterizerState()
@@ -58,9 +58,6 @@ void CBuffer::ReleaseBuffer()
 	{
 		::Safe_Release(m_pVtxBuffer);
 		::Safe_Release(m_pIdxBuffer);
-
-		::Safe_Delete(m_pVtxBuffer);
-		::Safe_Delete(m_pIdxBuffer);
 		CResource::ReleaseRefCnt();
 	}
 	else --(*m_pRefCnt);

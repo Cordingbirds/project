@@ -94,6 +94,7 @@ HRESULT CInMap::AddLayer_UI()
 	// Camera
 	pObj = CDynamicCamera::Create(m_pDevice);
 	NULL_CHECK_RETURN(pObj, E_FAIL);
+	((CDynamicCamera*)pObj)->SetPos(D3DXVECTOR3(0.f, 1.f, -10.f));
 	pLayer->AddObj(L"DynamicCamera", pObj);
 
 	m_pLayer[CLayer::LAYERTYPE_UI] = pLayer;

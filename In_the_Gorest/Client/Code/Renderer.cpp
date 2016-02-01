@@ -7,7 +7,7 @@
 CRenderer::CRenderer(CDevice* _pDevice)
 : m_pDevice(_pDevice)
 , m_pScene(NULL)
-, m_pColorShader(NULL)
+//, m_pColorShader(NULL) // for test
 {
 
 }
@@ -30,7 +30,7 @@ CRenderer* CRenderer::Create(CDevice* _pDeviceClass)
 
 HRESULT CRenderer::Init()
 {
-	m_pColorShader = dynamic_cast<CColorShader*>(CColorShader::Create(m_pDevice));
+	//m_pColorShader = dynamic_cast<CColorShader*>(CColorShader::Create(m_pDevice));
 
 	return S_OK;
 }
@@ -40,7 +40,7 @@ void CRenderer::Render()
 	m_pDevice->Render_Begin();
 
 
-	m_pColorShader->Render();
+	//m_pColorShader->Render();
 
 	if (m_pScene != NULL)
 		m_pScene->Render();
