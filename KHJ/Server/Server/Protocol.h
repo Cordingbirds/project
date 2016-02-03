@@ -1,5 +1,6 @@
 #pragma once
-
+#pragma comment(lib, "ws2_32")
+#include <WinSock2.h>
 #include <Windows.h>
 #include <stdio.h>
 #include <iostream>
@@ -8,7 +9,6 @@
 #include <queue>
 #include <mutex>
 #include <thread>
-#include <WinSock2.h>
 
 #include "GameManager.h"
 #include "Item.h"
@@ -17,6 +17,7 @@
 #include "SingleTon.h"
 #include "Timer.h"
 #include "Server.h"
+#include "Gun.h"
 
 #define MAXUSER					1000
 #define SERVER_PORT				9000
@@ -48,9 +49,9 @@ struct OVERAPPED_EX {
 	unsigned int curr_packet_size;
 };
 struct PLAYER {
-	int x;
-	int y;
-	int y;
+	float x;
+	float y;
+	float z;
 	float rotateX;
 	float rotateY;
 	SOCKET sock;
@@ -59,6 +60,7 @@ struct PLAYER {
 	set<int> view_list;
 	mutex	vl_lock;
 };
+PLAYER players[8];					//접속자 수
 
 #pragma pack (push, 1)
 

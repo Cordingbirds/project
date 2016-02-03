@@ -24,7 +24,9 @@ public:
 	int m_room;									// 방 번호
 	int m_ID;									// 방 입장 순서
 
-	void InitPlayer (int m_ID, int m_room);					// 게임 시작 시 플레이어
+	CServer server;
+
+	int InitPlayer ();					// 게임 시작 시 플레이어
 	void PlayerPos (float x, float y, float z, int ID);		// 플레이어 위치
 	int ChangePlayerState (int state);						// 상태
 

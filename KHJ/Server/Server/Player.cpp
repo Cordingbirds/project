@@ -16,3 +16,14 @@ CPlayer::CPlayer(){
 }
 CPlayer::~CPlayer(){}
 
+int CPlayer::InitPlayer(){
+	for (int i = 0; i < MAXUSER; ++i){
+		if (players[i].in_use == false){
+			server.PlayerInit(i);
+			return i;
+		}
+	}
+
+	
+
+}

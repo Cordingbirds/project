@@ -18,13 +18,12 @@ const int EVENT_ATTACK = 2;
 const int EVENT_HEAL = 3;
 
 
-
-const int EVENT_MOVE = 0;
-
 class CServer{
 public:
 	CServer();
 	~CServer();
+
+	CPlayer m_player;
 
 	void error_display(char *msg, int err_no)
 	{
@@ -48,6 +47,6 @@ public:
 	void PlayerInit(int id);
 	void SendPacket(int id, void *packet);
 	//void ProcessPacket(char *packet, int id);
-	void accept_thread();
+	void Accept_thread();
 	void worker_thread();
 };
