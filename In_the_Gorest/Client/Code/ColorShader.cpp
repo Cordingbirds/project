@@ -48,17 +48,27 @@ HRESULT CColorShader::Init()
 		pDevice->CreateInputLayout(
 			tInputLayout, iElementNum, pBlob->GetBufferPointer(), pBlob->GetBufferSize(), &m_pVertexLayout);
 	}
-	else return E_FAIL;
+	else
+	{
+		if (pErrorBlob) { FAILED_CHECK_MSG(E_FAIL, L"셰이더 컴파일 실패"); }
+		else { FAILED_CHECK_MSG(E_FAIL, L"셰이더 파일이 존재하지 않습니다.");  }
+		return E_FAIL;
+	}
 
 	pBlob = pErrorBlob = NULL;
 	if (SUCCEEDED(D3DX11CompileFromFile(L"../bin/Data/Fx/VertexColor.fx", NULL, NULL,
 		"PS", "ps_4_0", swFlag, 0, NULL, &pBlob, &pErrorBlob, NULL)))
 	{
 		pDevice->CreatePixelShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), NULL, &m_pPixelShader);
-		::Safe_Release(pBlob);
 	}
-	else return E_FAIL;
-
+	else
+	{
+		if (pErrorBlob) { FAILED_CHECK_MSG(E_FAIL, L"셰이더 컴파일 실패"); }
+		else { FAILED_CHECK_MSG(E_FAIL, L"셰이더 파일이 존재하지 않습니다."); }
+		return E_FAIL;
+	}
+	::Safe_Release(pBlob);
+	::Safe_Release(pErrorBlob);
 
 	return S_OK;
 }
@@ -71,7 +81,7 @@ void CColorShader::Update()
 
 void CColorShader::Render()
 {
-	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceContext();
 
 	if (m_pVertexLayout)
 		pDeviceContext->IASetInputLayout(m_pVertexLayout);

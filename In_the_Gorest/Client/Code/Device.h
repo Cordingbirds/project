@@ -35,7 +35,7 @@ public:
 
 public :
 	ID3D11Device*			GetDevice()					{ return m_pDevice; }
-	ID3D11DeviceContext*	GetDeviceCon()				{ return m_pDeviceContext; }
+	ID3D11DeviceContext*	GetDeviceContext()			{ return m_pDeviceContext; }
 
 	IDXGISwapChain*			GetSwapChain()				{ return m_pSwapChain; }
 	ID3D11RenderTargetView*	GetRenderTargetView()		{ return m_pRenderTargetView; }

@@ -57,5 +57,9 @@ public:
 	virtual ~CPhysicsInfo();
 };
 
+struct Buffer_World
+{
+	D3DXMATRIX			m_matWorld;
+};
 
 #endif // PhysicsInfo_h__

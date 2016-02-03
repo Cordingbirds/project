@@ -41,7 +41,8 @@ HRESULT CDynamicCamera::Init()
 	m_fNear = 1.f;
 	m_fFar = 1000.f;
 
-	Invalidate_Proj();
+	CCamera::Invalidate_View();
+	CCamera::Invalidate_Proj();
 
 
 	return S_OK;
@@ -60,7 +61,7 @@ int CDynamicCamera::Update()
 	case CObj::OBJ_STATE_ALIVE:
 		CheckKey();
 		FixMouse();
-		Invalidate_View();
+		CCamera::Invalidate_View();
 		break;
 
 	case CObj::OBJ_STATE_DIE:

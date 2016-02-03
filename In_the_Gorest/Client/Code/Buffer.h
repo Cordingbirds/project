@@ -29,7 +29,7 @@ protected:
 protected: // Vectex
 	ID3D11Buffer*		m_pVtxBuffer;
 	UINT				m_nVtxNum;
-	UINT				m_nVtxByte;
+	UINT				m_nVtxStride;
 	UINT				m_nVtxOffset;
 
 protected: // Index

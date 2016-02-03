@@ -202,13 +202,13 @@
     <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\CubeBuffer">
       <UniqueIdentifier>{6c4855c5-90c8-43a2-88e5-925f611ce36f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer">
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\MeshBuffer">
       <UniqueIdentifier>{8453a812-203f-418c-88d9-16b7147e4f1b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\DynamicFbx">
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\MeshBuffer\DynamicMesh">
       <UniqueIdentifier>{09e74246-8b9a-47c8-a849-c744eaee5835}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\StaticFbx">
+    <Filter Include="소스 파일\06. Component\01%29 Resource\Buffer\MeshBuffer\StaticMesh">
       <UniqueIdentifier>{0fa4d68e-d6c6-4f27-9cd9-0dd1f1ab78ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -361,10 +361,7 @@
       <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeBuffer</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\FbxBuffer.h">
-      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Code\StaticFbx.h">
-      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\StaticFbx</Filter>
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\MeshBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -496,10 +493,7 @@
       <Filter>소스 파일\06. Component\01%29 Resource\Buffer\CubeBuffer</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\FbxBuffer.cpp">
-      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Code\StaticFbx.cpp">
-      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\FbxBuffer\StaticFbx</Filter>
+      <Filter>소스 파일\06. Component\01%29 Resource\Buffer\MeshBuffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

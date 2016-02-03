@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "BoxCol.h"
 
-#include "Function.h"
-
 #include "ResourceMgr.h"
 #include "CubeBuffer.h"
+
+#include "PhysicsInfo.h"
 
 
 CBoxCol::CBoxCol(CDevice* _pDevice)
@@ -47,17 +47,13 @@ HRESULT CBoxCol::Init()
 	tBuffer.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	tBuffer.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
-	m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pWorldBuffer);
+	FAILED_CHECK_RETURN(
+		m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pWorldBuffer), S_FALSE);
 
 	return S_OK;
 }
 
 void CBoxCol::Update()
-{
-	m_pBuffer->Update();
-}
-
-void CBoxCol::Render()
 {
 	D3DXMATRIX	matScale, matTrans, matWolrd;
 	D3DXMatrixScaling(&matScale, m_vScale.x, m_vScale.y, m_vScale.z);
@@ -70,20 +66,25 @@ void CBoxCol::Render()
 	matWolrd = matScale * matTrans;
 
 	D3D11_MAPPED_SUBRESOURCE tSubreResource;
-	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceContext();
 	pDeviceContext->Map(m_pWorldBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &tSubreResource);
 
-	D3DXMATRIX* pMatWorld = (D3DXMATRIX*)(tSubreResource.pData);
-	D3DXMatrixTranspose(pMatWorld, &matWolrd);
+	Buffer_World* pMatWorld = (Buffer_World*)(tSubreResource.pData);
+	D3DXMatrixTranspose(&pMatWorld->m_matWorld, &matWolrd);
 
 	pDeviceContext->Unmap(m_pWorldBuffer, 0);
 	pDeviceContext->VSSetConstantBuffers(VS_SLOT_WORLD_MATRIX, 1, &m_pWorldBuffer);
 
+	m_pBuffer->Update();
+}
 
+void CBoxCol::Render()
+{
 	m_pBuffer->Render();
 }
 
 void CBoxCol::Release()
 {
 	::Safe_Delete(m_pBuffer);
+	::Safe_Release(m_pWorldBuffer);
 }

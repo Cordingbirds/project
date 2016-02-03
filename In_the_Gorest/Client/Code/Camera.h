@@ -34,7 +34,7 @@ public :
 	
 	ID3D11Buffer*		m_pViewBuffer;
 	ID3D11Buffer*		m_pProjBuffer;
-
+	
 
 private :
 	void	Init_Viewport();
@@ -49,6 +49,16 @@ protected:
 	explicit CCamera(CDevice* _pDevice);
 public :
 	virtual ~CCamera()		PURE;
+};
+
+struct Buffer_View
+{
+	D3DXMATRIX			m_matView;
+};
+
+struct Buffer_Proj
+{
+	D3DXMATRIX			m_matProj;
 };
 
 #endif // Camera_h__

@@ -9,7 +9,7 @@ CCamera::CCamera(CDevice* _pDevice)
 : CObj(_pDevice)
 
 , m_vEye(0.f, 0.f, 0.f)
-, m_vAt(0.f, 0.f, 0.f)
+, m_vAt(1.f, 0.f, 0.f)
 
 , m_fFovy(0.f)
 , m_fAspect(0.f)
@@ -39,10 +39,11 @@ void CCamera::Init_ViewBuffer()
 	ZeroMemory(&tBuffer, sizeof(D3D11_BUFFER_DESC));
 
 	tBuffer.Usage = D3D11_USAGE_DYNAMIC;
-	tBuffer.ByteWidth = sizeof(D3DXMATRIX);
+	tBuffer.ByteWidth = sizeof(Buffer_View);
 	tBuffer.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	tBuffer.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-	m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pViewBuffer);
+	FAILED_CHECK_RETURN(
+		m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pViewBuffer), );
 }
 
 void CCamera::Init_ProjBuffer()
@@ -51,10 +52,11 @@ void CCamera::Init_ProjBuffer()
 	ZeroMemory(&tBuffer, sizeof(D3D11_BUFFER_DESC));
 
 	tBuffer.Usage = D3D11_USAGE_DYNAMIC;
-	tBuffer.ByteWidth = sizeof(D3DXMATRIX);
+	tBuffer.ByteWidth = sizeof(Buffer_Proj);
 	tBuffer.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	tBuffer.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-	m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pProjBuffer);
+	FAILED_CHECK_RETURN(
+		m_pDevice->GetDevice()->CreateBuffer(&tBuffer, NULL, &m_pProjBuffer), );
 }
 
 void CCamera::Init_Viewport()
@@ -65,7 +67,7 @@ void CCamera::Init_Viewport()
 	m_tViewport.MinDepth = 0.f;
 	m_tViewport.MaxDepth = 1.f;
 
-	m_pDevice->GetDeviceCon()->RSSetViewports(1, &m_tViewport);
+	m_pDevice->GetDeviceContext()->RSSetViewports(1, &m_tViewport);
 }
 
 void CCamera::Invalidate_View()
@@ -74,12 +76,12 @@ void CCamera::Invalidate_View()
 
 
 	D3D11_MAPPED_SUBRESOURCE tSubreResource;
-	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceContext();
 
 	pDeviceContext->Map(m_pViewBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &tSubreResource);
 
-	D3DXMATRIX* pMatView = (D3DXMATRIX*)(tSubreResource.pData);
-	D3DXMatrixTranspose(pMatView, &m_matView);
+	Buffer_View* pMatView = (Buffer_View*)tSubreResource.pData;
+	D3DXMatrixTranspose(&pMatView->m_matView, &m_matView);
 
 	pDeviceContext->Unmap(m_pViewBuffer, 0);
 	pDeviceContext->VSSetConstantBuffers(VS_SLOT_VIEW_MATRIX, 1, &m_pViewBuffer);
@@ -91,11 +93,11 @@ void CCamera::Invalidate_Proj()
 
 
 	D3D11_MAPPED_SUBRESOURCE tSubreResource;
-	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceCon();
+	ID3D11DeviceContext* pDeviceContext = m_pDevice->GetDeviceContext();
 	pDeviceContext->Map(m_pProjBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &tSubreResource);
-	
-	D3DXMATRIX* pMatProj = (D3DXMATRIX*)(tSubreResource.pData);
-	D3DXMatrixTranspose(pMatProj, &m_matProj);
+
+	Buffer_Proj* pMatProj = (Buffer_Proj*)tSubreResource.pData;
+	D3DXMatrixTranspose(&pMatProj->m_matProj, &m_matProj);
 
 	pDeviceContext->Unmap(m_pProjBuffer, 0);
 	pDeviceContext->VSSetConstantBuffers(VS_SLOT_PROJECTION_MATRIX, 1, &m_pProjBuffer);

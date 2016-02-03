@@ -30,6 +30,8 @@ const WORD		MAX_STR		= 256;
 
 const WORD		MAX_KEY		= 256;
 
+const D3DXVECTOR3 g_vLook	= D3DXVECTOR3(1.f, 0.f, 0.f);
+
 
 //const DWORD	KEY_W = 0x00000001;
 //const DWORD	KEY_S = 0x00000002;

@@ -47,4 +47,23 @@ void Safe_Release(T& pointer)
 	}
 }
 
+static D3DXVECTOR3 Change3DCoordTo2DCoord(const D3DXVECTOR3& _vCoordValue,
+	const D3DXMATRIX* _matView,
+	const D3DXMATRIX* _matProj)
+{
+	D3DXVECTOR3		v2DCoordValue;
+	D3DXVECTOR3		vCoordValue = _vCoordValue;
+	D3DXMATRIX		matView = *_matView;
+	D3DXMATRIX		matProj = *_matProj;
+
+	D3DXMATRIX	matResult = matView * matProj;
+
+	D3DXVec3TransformCoord(&vCoordValue, &vCoordValue, &matResult);
+	v2DCoordValue.x = ((vCoordValue.x * matProj._11) + 1.f) * (CLIENT_WINCX >> 1);
+	v2DCoordValue.y = -(((vCoordValue.y * matProj._22) - 1.f) * (CLIENT_WINCY >> 1));
+	v2DCoordValue.z = 0.f;
+
+	return v2DCoordValue;
+}
+
 #endif // Function_h__
