@@ -5,7 +5,7 @@
 using namespace std;
 
 //template <class T>
-class CTimer : public SingleTon <CTimer>, public CGameManager {
+class CTimer{
 
 public:	
 	CTimer();

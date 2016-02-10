@@ -1,18 +1,22 @@
-#include "Protocol.h"
+//#include "Protocol.h"
+#include "Server.h"
 
-using namespace std;
+CRITICAL_SECTION cs;					//크리티컬 섹션
+//using namespace std;
+
+CPlayer m_player;
 
 CServer::CServer(){}
 
 CServer::~CServer(){}
 
 void CServer::PlayerInit(int id){
-	ZeroMemory(&players[id].my_overapped, sizeof(OVERAPPED_EX));
-	players[id].in_use = false;
-	players[id].my_overapped.operation_type = OP_RECV;
-	players[id].my_overapped.wsabuf.buf = players[id].my_overapped.IOCPbuf;
-	players[id].my_overapped.wsabuf.len = sizeof(players[id].my_overapped.IOCPbuf);
-	players[id].view_list.clear();
+	ZeroMemory(&m_player.players[id].my_overapped, sizeof(OVERAPPED_EX));
+	m_player.players[id].in_use = false;
+	m_player.players[id].my_overapped.operation_type = OP_RECV;
+	m_player.players[id].my_overapped.wsabuf.buf = m_player.players[id].my_overapped.IOCPbuf;
+	m_player.players[id].my_overapped.wsabuf.len = sizeof(m_player.players[id].my_overapped.IOCPbuf);
+	//m_player.players[id].view_list.clear();
 }
 
 void CServer::SendPacket(int id, void *packet)
@@ -28,8 +32,21 @@ void CServer::SendPacket(int id, void *packet)
 
 	memcpy(send_over->IOCPbuf, packet, packet_size);
 
-	WSASend(players[id].sock, &send_over->wsabuf, 1,
+	WSASend(m_player.players[id].sock, &send_over->wsabuf, 1,
 		&io_size, NULL, &send_over->overapped, NULL);
+}
+
+void CServer::ProcessPacket(char* packet, int id){
+
+	switch (packet[0])
+	{
+	case CS_KEY:
+		break;
+	case CS_ROTATE:
+		break;
+
+	}
+
 }
 
 void CServer::Accept_thread(){
@@ -67,15 +84,21 @@ void CServer::Accept_thread(){
 		}
 
 		// 플레이어 접속 / 위치 / 상태
-		int id = m_player.InitPlayer();
-		players[id].sock = client_socket;
+		int id;
+		for (int i = 0; i < MAXUSER; ++i){
+			if (m_player.players[i].in_use == false){
+				PlayerInit(i);
+				id = i;
+			}
+		}
+		m_player.players[id].sock = client_socket;
 		
 		CreateIoCompletionPort(reinterpret_cast<HANDLE>(client_socket),
 			hIOCP, id, 0);
 		unsigned long recv_flag = 0;
 
-		ret = WSARecv(client_socket, &players[id].my_overapped.wsabuf, 1, NULL,
-			&recv_flag, &players[id].my_overapped.overapped, NULL);
+		ret = WSARecv(client_socket, &m_player.players[id].my_overapped.wsabuf, 1, NULL,
+			&recv_flag, &m_player.players[id].my_overapped.overapped, NULL);
 
 		if (SOCKET_ERROR == ret){
 			int err_code = WSAGetLastError();
@@ -88,6 +111,10 @@ void CServer::Accept_thread(){
 		// 서버에서 클라로 보내줄 플레이어 패킷
 		// SC_Player
 		// CPlayer에서 해주자
+		SC_Player *m_playerpacket;
+		m_player.PlayerAccept(id, m_playerpacket);
+		SendPacket(id, &m_playerpacket);
+
 	}
 }
 
@@ -100,11 +127,62 @@ void CServer::worker_thread(){
 		OVERAPPED_EX *over_ex;
 		GetQueuedCompletionStatus(hIOCP, &io_size, &key, 
 			reinterpret_cast<LPOVERLAPPED*> (&over_ex), INFINITE);
-
+		
+		// 에러로 인한 접속 종료
 		if (0 == io_size){
-			closesocket(players[key].sock);
-
+			closesocket(m_player.players[key].sock);
+			m_player.players[key].in_use = false;
 		}
+
+		//recv
+		if (OP_RECV == over_ex->operation_type){
+			int rest_size = io_size;
+			char* buf = over_ex->IOCPbuf;
+			int packet_size = over_ex->curr_packet_size;
+			while (0 < rest_size){
+				if (0 == packet_size)
+					packet_size = buf[0];
+				int remain = packet_size - over_ex->prev_received;
+
+				//패킷을 만들기에 공간이 부족한 경우
+				if (remain > rest_size){
+					memcpy(over_ex->PacketBuf + over_ex->prev_received,
+						buf, rest_size);
+					over_ex->prev_received += rest_size;
+				}
+				// 패킷 만들기에 충분
+				else{
+					memcpy(over_ex->PacketBuf + over_ex->prev_received,
+						buf, remain);
+					// 프로세스패킷 함수 ( 클라에서 받아온 정보 패킷 처리)
+
+					rest_size -= remain;
+					packet_size = 0;
+					over_ex->prev_received = 0;
+				}
+			}
+			over_ex->curr_packet_size = packet_size;
+			unsigned long recv_flag = 0;
+			WSARecv(m_player.players[key].sock, &over_ex->wsabuf, 1, NULL,
+				&recv_flag, &over_ex->overapped, NULL);
+		}
+		//SEND
+		else if (OP_SEND == over_ex->operation_type)
+			delete over_ex;
 	}
 }
 
+void main(){
+	CServer server;
+	vector <thread *> worker_threads;
+	server.NetworkInit();
+
+	for (int i = 0; i < MAXUSER; ++i)
+		server.PlayerInit(i);
+
+	hIOCP = CreateIoCompletionPort(INVALID_HANDLE_VALUE, 0, 0, 0);
+
+	while (true){
+		Sleep(1000);
+	}
+}
