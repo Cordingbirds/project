@@ -1,5 +1,6 @@
 #include "Protocol.h"
-
+#include "Player.h"
+//#include <WinSock2.h>
 
 const int NUM_THREADS = 6;
 const int STARTING_X = 4;
@@ -18,12 +19,11 @@ const int EVENT_ATTACK = 2;
 const int EVENT_HEAL = 3;
 
 
+
 class CServer{
 public:
 	CServer();
 	~CServer();
-
-	CPlayer m_player;
 
 	void error_display(char *msg, int err_no)
 	{
@@ -46,7 +46,9 @@ public:
 
 	void PlayerInit(int id);
 	void SendPacket(int id, void *packet);
-	//void ProcessPacket(char *packet, int id);
+	void ProcessPacket(char *packet, int id);
 	void Accept_thread();
 	void worker_thread();
+
+	void servermain();
 };

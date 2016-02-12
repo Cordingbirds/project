@@ -2,7 +2,7 @@
 #pragma comment(lib, "ws2_32")
 #include <WinSock2.h>
 #include <Windows.h>
-#include <stdio.h>
+#include <cstdio>
 #include <iostream>
 #include <vector>
 #include <set>
@@ -10,14 +10,14 @@
 #include <mutex>
 #include <thread>
 
-#include "GameManager.h"
-#include "Item.h"
-#include "MemoryPool.h"
-#include "Player.h"
-#include "SingleTon.h"
-#include "Timer.h"
-#include "Server.h"
-#include "Gun.h"
+//#include "GameManager.h"
+//#include "Item.h"
+//#include "MemoryPool.h"
+//#include "Player.h"
+//#include "SingleTon.h"
+//#include "Timer.h"
+//#include "Server.h"
+//#include "Gun.h"
 
 #define MAXUSER					1000
 #define SERVER_PORT				9000
@@ -32,10 +32,10 @@
 #define CS_SHOOT				4
 
 //S->C
-#define CS_PLAYER				1
-#define CS_ITEM					2
-#define CS_TIMER				3
-#define CS_SHOOT				4
+#define SC_PLAYER				1
+#define SC_ITEM					2
+#define SC_TIMER				3
+#define SC_SHOOT				4
 
 using namespace std;
 
@@ -48,6 +48,7 @@ struct OVERAPPED_EX {
 	unsigned int prev_received;
 	unsigned int curr_packet_size;
 };
+
 struct PLAYER {
 	float x;
 	float y;
@@ -57,24 +58,23 @@ struct PLAYER {
 	SOCKET sock;
 	bool in_use;
 	OVERAPPED_EX my_overapped;
-	set<int> view_list;
-	mutex	vl_lock;
+	//set<int> view_list;						// 추후 필요시 사용 예정
+	//mutex	vl_lock;							// 대신 크리티컬 섹션 사용
 };
-PLAYER players[8];					//접속자 수
+
 
 #pragma pack (push, 1)
 
 struct CS_key{						// 키 값
-	float speed;
-	BYTE movetype;					// 1234
 	BYTE type;						// 1		
 	BYTE size;
+	int movetype;					// 1234
 };
 struct CS_Rotate{					// 플레이어 회전
-	float rotateX;
-	float rotateY;
 	BYTE type;						//2
 	BYTE size;
+	float rotateX;
+	float rotateY;
 };
 
 struct CS_ItemGet{					// 아이템 획득
@@ -88,6 +88,8 @@ struct CS_ShootKey{					// 총 쏘는 키 받기
 };
 
 struct SC_Player{					// 플레이어 위치
+	BYTE type;						//1
+	BYTE size;						
 	float x;
 	float y;
 	float z;
@@ -95,36 +97,34 @@ struct SC_Player{					// 플레이어 위치
 	float rotate_y;					//상하
 	int ID;		
 	int state;						//케릭터 상태 -> 추후에 이펙트 추가 시 사용
-	BYTE size;
-	BYTE type;						//1
 };
 
 struct SC_Item{						// 아이템 위치
+	BYTE type;						// 2
+	BYTE size;
 	float x;
 	float y;
 	float z;
 	bool isExist;
-	BYTE type;						// 2
-	BYTE size;
 };
 
 struct SC_Timer{
-	float time;
 	BYTE type;						// 3
 	BYTE size;
+	float time;
 };
 
-struct SC_Shoot{
-	int ID;							
+struct SC_Shoot{							
 	BYTE type;						// 4
 	BYTE size;
+	int ID;
 };
 
 struct SC_Room{
-	int num;
-	int ID[8];
 	BYTE type;
 	BYTE size;
+	int num;
+	int ID[8];
 };
 
 #pragma pack (pop)

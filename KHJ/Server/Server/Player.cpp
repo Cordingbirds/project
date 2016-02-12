@@ -1,4 +1,4 @@
-#include "Protocol.h"
+#include "Player.h"
 
 // 이동키값
 #define KEY_UP					1
@@ -10,20 +10,22 @@
 #define STATE_DIZZY				2
 #define STATE_BOOSTER			3
 
-
 CPlayer::CPlayer(){
 
 }
 CPlayer::~CPlayer(){}
 
-int CPlayer::InitPlayer(){
-	for (int i = 0; i < MAXUSER; ++i){
-		if (players[i].in_use == false){
-			server.PlayerInit(i);
-			return i;
-		}
-	}
 
-	
+SC_Player CPlayer::PlayerAccept(int id, SC_Player *packet){
+	SC_Player put_PlayerPacket;
 
+	//packet = put_PlayerPacket;
+
+	put_PlayerPacket.ID = id;
+	put_PlayerPacket.type = SC_PLAYER;
+	put_PlayerPacket.size = sizeof(put_PlayerPacket);
+	put_PlayerPacket.rotate_x = players[id].rotateX;
+
+	return put_PlayerPacket;
 }
+
