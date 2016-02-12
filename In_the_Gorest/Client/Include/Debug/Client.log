@@ -1,9 +1,80 @@
-﻿빌드 시작: 2016-02-12 오후 11:25:55
+﻿빌드 시작: 2016-02-12 오후 11:49:17
      1>2 노드의 "C:\Graduation Work\project\In_the_Gorest\Client\Include\Client.vcxproj" 프로젝트(Build 대상)입니다.
-     1>Link:
+     1>FxCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\fxc.exe /nologo /E"main" /T fx_4_0 /Fo "../bin/VertexTexture.cso" /Od /Zi ..\bin\Data\Fx\VertexTexture.fx 
+     1>FXC : warning X4717: Effects deprecated for D3DCompiler_47
+         
+         compilation object save succeeded; see C:\Graduation Work\project\In_the_Gorest\Client\bin\VertexTexture.cso
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../Code /I../Headers /I../../Reference/Headers /I"C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Client.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Code\Buffer.cpp ..\Code\Camera.cpp ..\Code\Collision.cpp ..\Code\ColorShader.cpp ..\Code\Component.cpp ..\Code\CubeBuffer.cpp ..\Code\Device.cpp ..\Code\DynamicCamera.cpp ..\Code\FbxBuffer.cpp ..\Code\InMap.cpp ..\Code\InfoSubject.cpp ..\Code\KeyMgr.cpp ..\Code\Layer.cpp ..\Code\Loading.cpp ..\Code\Lobby.cpp ..\Code\MainGame.cpp ..\Code\Obj.cpp ..\Code\ObjMgr.cpp ..\Code\Observer.cpp ..\Code\PhysicsInfo.cpp ..\Code\Player.cpp stdafx.cpp
+         stdafx.cpp
+         Player.cpp
+         PhysicsInfo.cpp
+         Observer.cpp
+         ObjMgr.cpp
+         Obj.cpp
+         MainGame.cpp
+         Lobby.cpp
+         Loading.cpp
+         Layer.cpp
+         KeyMgr.cpp
+         InfoSubject.cpp
+         InMap.cpp
+         FbxBuffer.cpp
+         DynamicCamera.cpp
+         Device.cpp
+         CubeBuffer.cpp
+         Component.cpp
+         ColorShader.cpp
+         Collision.cpp
+         Camera.cpp
+         Buffer.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/Client.exe" /INCREMENTAL /NOLOGO /LIBPATH:../../Reference/Librarys kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"../bin/Client.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../bin/Client.lib" /MACHINE:X86 Debug\Client.res
+         Debug\BoxCol.obj
+         Debug\Buffer.obj
+         Debug\Camera.obj
+         Debug\Collision.obj
+         Debug\ColorShader.obj
+         Debug\Component.obj
+         Debug\CubeBuffer.obj
+         Debug\Device.obj
+         Debug\DynamicCamera.obj
+         Debug\FbxBuffer.obj
+         Debug\InfoSubject.obj
+         Debug\InMap.obj
+         Debug\KeyMgr.obj
+         Debug\Layer.obj
+         Debug\Loading.obj
+         Debug\Lobby.obj
+         Debug\MainGame.obj
+         Debug\Obj.obj
+         Debug\ObjMgr.obj
+         Debug\Observer.obj
+         Debug\PhysicsInfo.obj
+         Debug\Player.obj
+         Debug\PlayingInfo.obj
+         Debug\RecosterInfo.obj
+         Debug\Renderer.obj
+         Debug\Resource.obj
+         Debug\ResourceMgr.obj
+         Debug\Rider.obj
+         Debug\Room.obj
+         Debug\RoomInfo.obj
+         Debug\Scene.obj
+         Debug\SceneMgr.obj
+         Debug\Shader.obj
+         Debug\Subject.obj
+         Debug\Timer.obj
+         Debug\Title.obj
+         Debug\Unit.obj
+         Debug\UserInfo.obj
+         Debug\Client.obj
+         Debug\stdafx.obj
+         LINK : ../bin/Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
          Client.vcxproj -> C:\Graduation Work\project\In_the_Gorest\Client\Include\../bin/Client.exe
      1>"C:\Graduation Work\project\In_the_Gorest\Client\Include\Client.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
 
 빌드했습니다.
 
-경과 시간: 00:00:01.19
+경과 시간: 00:00:04.75
